@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../images/hplogin.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+}
+
+.register-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.register-form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.register-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+/* Estilos específicos para o campo de e-mail */
+.form-group #newEmail {
+    border: 1px solid #ced4da; /* Adiciona uma borda ao redor do campo de e-mail */
+    border-radius: 5px; /* Borda arredondada */
+    padding: 10px; /* Adiciona um preenchimento interno ao campo de e-mail */
+}
+
+.form-group #newNIF {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn-register {
+    color: #ffffff;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-form.card {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+}

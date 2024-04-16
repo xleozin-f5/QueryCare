@@ -1,0 +1,71 @@
+/* Reset de estilos */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adiciona estilos para garantir o sticky footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    color: #555;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    background-color: #345995;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    max-width: 200px;
+}
+
+.title {
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.main {
+    padding: 20px 0;
+}
+
+.btn-access-agenda {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #345995;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    background-image: linear-gradient(to bottom, #345995, #1c3565);
+}
+
+.btn-access-agenda:hover {
+    background-color: #2a477a;
+    background-image: linear-gradient(to bottom, #2a477a, #143354);
+}
