@@ -74,7 +74,7 @@ if (isset($_SESSION["user"])) {
                 <input type="text" class="form-control" name="fullname" placeholder="Nome Completo">
             </div>
             <div class="form-group">
-    <input type="text" class="form-control" name="healthnumber" placeholder="Número de utente de saúde">
+    <input type="text" class="form-control" name="healthnumber" placeholder="Número de utente de saúde" type="text" maxlength="9">
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Palavra de Passe">

@@ -41,7 +41,7 @@ if (isset($_SESSION["user"])) {
         ?>
         <form action="login.php" method="post">
             <div class="form-group">
-                <input type="text" placeholder="Número de Utente de Saúde" name="healthnumber" class="form-control">
+                <input type="text" placeholder="Número de Utente de Saúde" name="healthnumber" class="form-control" type="text" maxlength="9">
             </div>
             <div class="form-group">
                 <input type="password" placeholder="Palavra-Passe" name="password" class="form-control">
