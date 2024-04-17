@@ -20,7 +20,7 @@
 }
 
 body {
-    background-image: url("../images/header.jpg");
+    background-image: url("../assets/header.jpg");
     background-size: cover; /* ou defina uma largura específica, como 100% */
     background-position: center;
     background-repeat: no-repeat;
