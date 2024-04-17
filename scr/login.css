@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+    background: url('../assets/hplogin.jpg') no-repeat center center fixed;
+    background-size: cover;
     padding: 50px;
 }
 

@@ -28,7 +28,7 @@
 /* Estilos adicionais */
 body {
     background-image: url('../assets/background.png'); /* Caminho para a imagem de fundo */
-    background-size: center center; /* Ajusta a imagem de fundo para cobrir todo o corpo */
+    background-size: cover; /* Ajusta a imagem de fundo para cobrir todo o corpo */
     background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
     background-position: center center; /* Centraliza a imagem de fundo */
 }
