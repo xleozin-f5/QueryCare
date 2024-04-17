@@ -1,0 +1,24 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .container {
+    max-width: 500px;
+  }
+  
+  .form-control {
+    border-radius: 25px;
+  }
+  
+  .btn-primary {
+    border-radius: 25px;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
