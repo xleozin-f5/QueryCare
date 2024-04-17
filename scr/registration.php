@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 if (isset($_SESSION["user"])) {
    header("Location: index.php");
@@ -10,16 +12,16 @@ if (isset($_SESSION["user"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>QueryCare - Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="registration.css">
 </head>
 <body>
     <div class="container">
         <?php
         if (isset($_POST["submit"])) {
            $fullName = $_POST["fullname"];
-           $email = $_POST["email"];
+           $healthnumber = $_POST["healthnumber"];
            $password = $_POST["password"];
            $passwordRepeat = $_POST["repeat_password"];
            
@@ -27,24 +29,24 @@ if (isset($_SESSION["user"])) {
 
            $errors = array();
            
-           if (empty($fullName) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
-            array_push($errors,"All fields are required");
+           if (empty($fullName) OR empty($healthnumber) OR empty($password) OR empty($passwordRepeat)) {
+            array_push($errors,"Todos os campos são necessários!");
            }
-           if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            array_push($errors, "Email is not valid");
+           if (!filter_var($healthnumber, FILTER_VALIDATE_INT)) {
+            array_push($errors, "O número de Saúde não é válido");
            }
            if (strlen($password)<8) {
-            array_push($errors,"Password must be at least 8 charactes long");
+            array_push($errors,"A senha deve ter pelo menos 8 caracteres");
            }
            if ($password!==$passwordRepeat) {
-            array_push($errors,"Password does not match");
+            array_push($errors,"Senha não corresponde");
            }
            require_once "database.php";
-           $sql = "SELECT * FROM users WHERE email = '$email'";
+           $sql = "SELECT * FROM users WHERE healthnumber = '$healthnumber'";
            $result = mysqli_query($conn, $sql);
            $rowCount = mysqli_num_rows($result);
            if ($rowCount>0) {
-            array_push($errors,"Email already exists!");
+            array_push($errors, "Este número de saúde já foi registado!");
            }
            if (count($errors)>0) {
             foreach ($errors as  $error) {
@@ -52,15 +54,15 @@ if (isset($_SESSION["user"])) {
             }
            }else{
             
-            $sql = "INSERT INTO users (full_name, email, password) VALUES ( ?, ?, ? )";
+            $sql = "INSERT INTO users (full_name, healthnumber, password) VALUES ( ?, ?, ? )";
             $stmt = mysqli_stmt_init($conn);
             $prepareStmt = mysqli_stmt_prepare($stmt,$sql);
             if ($prepareStmt) {
-                mysqli_stmt_bind_param($stmt,"sss",$fullName, $email, $passwordHash);
+                mysqli_stmt_bind_param($stmt,"sss",$fullName, $healthnumber, $passwordHash);
                 mysqli_stmt_execute($stmt);
-                echo "<div class='alert alert-success'>You are registered successfully.</div>";
+                echo "<div class='alert alert-success'>Foste registado com sucesso.</div>";
             }else{
-                die("Something went wrong");
+                die("Ups, Algo deu errado :( ");
             }
            }
           
@@ -69,23 +71,23 @@ if (isset($_SESSION["user"])) {
         ?>
         <form action="registration.php" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="fullname" placeholder="Full Name:">
+                <input type="text" class="form-control" name="fullname" placeholder="Nome Completo">
             </div>
             <div class="form-group">
-                <input type="emamil" class="form-control" name="email" placeholder="Email:">
+    <input type="text" class="form-control" name="healthnumber" placeholder="Número de utente de saúde">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password:">
+                <input type="password" class="form-control" name="password" placeholder="Palavra de Passe">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="repeat_password" placeholder="Repeat Password:">
+                <input type="password" class="form-control" name="repeat_password" placeholder="Repete a Palavra de Passe">
             </div>
             <div class="form-btn">
-                <input type="submit" class="btn btn-primary" value="Register" name="submit">
+                <input type="submit" class="btn btn-primary" value="Aceder" name="submit">
             </div>
         </form>
         <div>
-        <div><p>Already Registered <a href="login.php">Login Here</a></p></div>
+        <div><p>Já tem conta na QueryCare? Faça login <a href="login.php">aqui</a>.</p></div>
       </div>
     </div>
 </body>
