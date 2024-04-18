@@ -1,62 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>QueryCare</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="css/login.css">
-    <link rel="icon" type="image/x-icon" href="./images/logo.png" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxes com Bootstrap</title>
+  <!-- Adicionando Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Adicionando CSS customizado -->
+  <link rel="stylesheet" href="./css/login.css">
 </head>
-
 <body>
 
-    <!-- Barra de Navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand" href="./index.html"><img src="./assets/logo.png" alt="Logo" style="max-width: 100px;"></a>
-    </nav>
-
-    <div class="container-fluid login-container">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 align-self-center">
-                <div class="login-info text-white">
-                    <h2 class="blue-text">Bem-vindo(a)</h2>
-                    <h2 class="blue-text">Ao Teu Portal Pessoal!</h2>
-                    <p>O Upcarry simplifica a gestão das tuas informações importantes.</p>
-                    <p>Após login, acedes facilmente a exames, notas e mais.</p>
-                </div>
+          <div class="col-md-6">
+            <div class="box h-100 text-center d-flex flex-column justify-content-center">
+              <h3>Número de Utente de Saúde</h3>
+              <p>Garante o acesso a todos os serviços digitais.</p>
+              <button class="btn btn-primary">Entrar</button>
             </div>
-            <div class="col-md-6">
-                <div class="login-form">
-                    <h2 class="text-center mb-4">UpQuerry</h2>
-                    <form method="post" action="./login"> <!-- Adicione um endpoint de login no seu backend -->
-                        <div class="form-group">
-                            <label for="username"><i class="fas fa-user"></i> Nome de Utilizador:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password"><i class="fas fa-lock"></i> Palavra-passe:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-login"><i class="fas fa-sign-in-alt"></i>
-                            Entrar</button>
-                    </form>
-                    <p class="text-center mt-3">Ainda não tem uma conta? <a href="./register.html">Crie uma agora</a>.
-                    </p> <!-- Adicione um link para a página de registro -->
-                </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box h-100 text-center d-flex flex-column justify-content-center">
+              <h3>Chave Móvel Digital</h3>
+              <p>Garante o acesso a todos os serviços digitais.</p>
+              <button class="btn btn-primary">Entrar</button>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/all.min.js"></script>
-
-    <script src="/js/login.js"></script>
+<!-- Adicionando Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
