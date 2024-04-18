@@ -3,30 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Médico Menu</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet">
-  <link href="menumed.css" rel="stylesheet">
+  <title>Hospital System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="menumed.css"> <!-- Incluir o arquivo CSS personalizado -->
 </head>
-<body>
-  <header class="header">
-    <div class="container">
-      <img src="../images/logo.png" alt="Logo" class="logo" style="max-width: 100px;">
-    </div>
-  </header>
+<body style="background-color: #f0f5f9;"> <!-- Fundo azul claro -->
 
-  <main class="main">
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Agenda Médica</h2>
-        <div id="calendar"></div>
-        <a href="med_agenda.html" class="btn-access-agenda">Acessar Minha Agenda</a>
-      </div>
-    </section>
-    
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2024 QueryCare. Todos os direitos reservados.</p>
+<div class="sidebar">
+  <div class="profile-info">
+    <div class="profile-img">
+      <img src="profile.jpg" alt="Profile Picture">
     </div>
-  </footer>
+    <div class="profile-text">
+      <h5>Dr. John Doe</h5> <!-- Nome do médico -->
+      <p>john.doe@example.com</p> <!-- Email do médico -->
+    </div>
+  </div>
+  <ul>
+    <li>
+      <a href="#">
+        <i class="fas fa-columns"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="far fa-calendar-alt"></i>
+        <span>Appointments</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-user-md"></i>
+        <span>Doctors</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-user-injured"></i>
+        <span>Patients</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+  <div class="logout-btn-container">
+    <button class="btn btn-primary btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button> <!-- Botão de logout -->
+  </div>
+</div>
+
+<div class="content">
+  <h1>Welcome to the Hospital System</h1>
+  <p>This is the content area. You can put your main content here.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
