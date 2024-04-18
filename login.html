@@ -6,6 +6,8 @@
   <title>Iniciar Sessão</title>
   <!-- Adicionando Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Adicionando Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-yTm9i/vDlCGgB/fGGAj4EfFJL+90et93tqEYjnjChPCV+pHk57c4pXo/m8O2gPkf" crossorigin="anonymous">
   <!-- Adicionando CSS customizado -->
   <link rel="stylesheet" href="./css/login.css">
   <!-- Adicionando Google Fonts para estilos de texto -->
@@ -37,24 +39,27 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
-      <h2 class="font-weight-bold mb-4">Iniciar Sessão</h2>
+      <h2 class="font-weight-bold mb-4 text-primary">Iniciar Sessão</h2> <!-- Adicionando a classe text-primary -->
       <p class="text-muted">Escolha a forma de iniciar sessão para que possa aceder às diferentes funcionalidades.</p>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="box h-100 text-center d-flex flex-column justify-content-center">
-        <h3>N de Utente de Saúde</h3>
+        <h3>Número de Utente de Saúde</h3>
         <p class="text-center">Garante o acesso a todos os serviços digitais.</p>
-        <button class="btn btn-primary">Entrar</button>
-      </div>
+        <a href="./scr/login.php" class="btn btn-primary">Entrar</a>
+    </div>
     </div>
     <div class="col-md-6">
-      <div class="box h-100 text-center d-flex flex-column justify-content-center">
+      <div class="box h-100 text-center d-flex flex-column justify-content-center position-relative">
+        <div class="gear-icon">
+          <i class="fas fa-cog"></i>
+        </div>
         <h3>Chave Móvel Digital</h3>
         <p class="text-center">Garante o acesso a todos os serviços digitais.</p>
         <a href="./public/chavemd.php" class="btn btn-primary">Entrar</a>
-    </div>
+      </div>
     </div>
   </div>
 </div>
