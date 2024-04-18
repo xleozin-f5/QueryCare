@@ -1,11 +1,38 @@
 /* login.css */
 
+.navbar {
+  margin-bottom: 20px; /* Adiciona margem inferior ao cabeçalho */
+}
+
+.navbar-brand {
+  margin-left: 75px; /* Adiciona margem à ESQ da logo */
+  margin-top: 15px;
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+.navbar-nav .nav-link {
+  color: rgb(0, 0, 0) !important; /* Use !important para garantir que a cor seja aplicada */
+  font-size: 19px; /* Ajusta o tamanho da fonte */
+}
+
+.navbar-nav {
+  margin-right: 120px; /* Adiciona margem à DIR do texto do menu */
+}
+
+.logo-img {
+  max-width: 100px;
+  height: auto;
+}
+
 /* Estilo para centralizar as caixas horizontalmente */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Definindo a altura total da tela */
+  background-image: url('../assets/background.png'); /* Adicionando imagem de fundo */
+  background-size: cover; /* Redimensiona a imagem para preencher a área do contêiner */
+  background-position: center; /* Centraliza a imagem */
 }
 
 /* Estilo para as caixas */
@@ -13,21 +40,25 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo com transparência */
 }
 
 /* Estilo para o título das caixas */
+
+h2.font-weight-bold.mb-4 {
+  color: #027bff; /* Define a cor do título para azul */
+}
+
 .box h3 {
   color: #333; /* cor do texto */
-  margin-bottom: 15px; /* margem inferior para separar o título do parágrafo */
 }
 
 /* Estilo para a descrição das caixas */
 .box p {
   color: #666; /* cor do texto */
-  margin-bottom: 15px; /* margem inferior para separar o parágrafo do botão */
 }
 
 /* Estilo para os botões */
 .btn {
-  margin-top: auto; /* alinhar o botão ao final da caixa */
+  margin-top: 10px;
 }
