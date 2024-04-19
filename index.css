@@ -1,0 +1,68 @@
+/* Adicione o estilo para a rotação do carrossel na vertical */
+.carousel.vertical {
+  width: 200px; /* Ajuste a largura conforme necessário */
+  height: 300px; /* Ajuste a altura conforme necessário */
+  margin: auto; /* Centralize o carrossel na página */
+}
+
+.carousel.vertical .carousel-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel.vertical .carousel-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+body {
+    background-image: url("../assets/header.jpg");
+    background-size: cover; /* ou defina uma largura específica, como 100% */
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Define a altura da tela para centralizar verticalmente */
+    color: aliceblue;
+}
+
+.navbar {
+  margin-bottom: 20px; /* Adiciona margem inferior ao cabeçalho */
+}
+
+.navbar-brand {
+  margin-left: 75px; /* Adiciona margem à ESQ da logo */
+  margin-top: 15px;
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+}
+
+.navbar-nav .nav-link {
+  color: rgb(241, 235, 235) !important; /* Use !important para garantir que a cor seja aplicada */
+  font-size: 19px; /* Ajusta o tamanho da fonte */
+}
+
+.navbar-nav {
+  margin-right: 120px; /* Adiciona margem à DIR do texto do menu */
+}
+
+.logo-img {
+  max-width: 100px;
+  height: auto;
+}
+
+.container {
+  text-align: center;
+  color: white;
+  padding-top: 100px; /* Adiciona espaço acima do título */
+}
+
+.container h1 {
+  font-size: 50px; /* Ajusta o tamanho da fonte do título */
+  font-weight: bold;
+} 
