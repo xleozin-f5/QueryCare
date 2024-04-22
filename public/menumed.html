@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital System</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="../src/doctormenu/css/menumed.css"> <!-- Incluir o arquivo CSS personalizado -->
+</head>
+<body style="background-color: #f0f5f9;"> <!-- Fundo azul claro -->
+
+<div class="sidebar">
+  <div class="profile-info">
+    <div class="profile-img">
+      <img src="../assets/profile.png" alt="Profile Picture">
+    </div>
+    <div class="profile-text">
+      <h5>Dr. John Doe</h5> <!-- Nome do médico -->
+      <p>john.doe@example.com</p> <!-- Email do médico -->
+    </div>
+  </div>
+  <ul>
+    <li>
+      <a href="#">
+        <i class="fas fa-columns"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="far fa-calendar-alt"></i>
+        <span>Appointments</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-user-md"></i>
+        <span>Doctors</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-user-injured"></i>
+        <span>Patients</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+  <div class="logout-btn-container">
+    <form action="../src/login/logout.php">
+      <input type="submit" value="Logout" class="btn btn-primary btn-logout">
+    </form>
+  </div>
+</div>
+
+<div class="content">
+  <h1>Welcome to the Hospital System</h1>
+  <p>This is the content area. You can put your main content here.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
