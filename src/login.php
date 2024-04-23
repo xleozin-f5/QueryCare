@@ -1,9 +1,51 @@
 <?php
+// Habilitar a exibição de erros de PHP
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 
+// Verifica se o usuário não está logado
 if (!isset($_SESSION["user"])) {
     header("Location: /QueryCare/src/login.php");
     exit();
+}
+
+// Verifica se o formulário de login foi enviado
+if (isset($_POST["login"])) {
+    // Obtém os dados do formulário
+    $healthnumber = $_POST["healthnumber"];
+    $password = $_POST["password"];
+
+    // Inclui o arquivo de configuração do banco de dados
+    require_once "./inc/database.php";
+
+    // Consulta para selecionar o usuário com o número de saúde fornecido
+    $sql = "SELECT * FROM users WHERE healthnumber = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $healthnumber);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    // Verifica se o usuário foi encontrado
+    if ($user) {
+        // Verifica se a senha está correta
+        if (password_verify($password, $user["password"])) {
+            // Define a variável de sessão para indicar que o usuário está logado
+            $_SESSION["user"] = "yes";
+            // Redireciona para a página inicial
+            header("Location: index.php");
+            exit();
+        } else {
+            // Exibe uma mensagem de erro se a senha estiver incorreta
+            $error_message = "A palavra-passe não corresponde";
+        }
+    } else {
+        // Exibe uma mensagem de erro se o número de saúde não for encontrado
+        $error_message = "O número de utente de saúde não corresponde";
+    }
 }
 ?>
 
@@ -17,7 +59,7 @@ if (!isset($_SESSION["user"])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/login.css">
     <style>
-      /* Pq não em um arquivo css? */
+        /* Estilos embutidos */
         body {
             font-family: Arial, sans-serif;
             background: url('../assets/img/hplogin.jpg') no-repeat center center fixed;
@@ -41,31 +83,12 @@ if (!isset($_SESSION["user"])) {
 </head>
 <body>
     <div class="container">
-        <?php
-        //De novo, precisa estar em um outro arquivo "src"
-        if (isset($_POST["login"])) {
-            $healthnumber = $_POST["healthnumber"];
-            $password = $_POST["password"];
-            require_once "./inc/database.php";
-            $sql = "SELECT * FROM users WHERE healthnumber = ?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("s", $healthnumber);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $user = $result->fetch_assoc();
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    $_SESSION["user"] = "yes";
-                    header("Location: index.php");
-                    exit();
-                } else {
-                    echo "<div class='alert alert-danger'><i class='fas fa-exclamation-circle'></i> A palavra-passe não corresponde</div>";
-                }
-            } else {
-                echo "<div class='alert alert-danger'><i class='fas fa-exclamation-circle'></i> O número de utente de saúde não corresponde</div>";
-            }
-        }
-        ?>
+        <?php if (isset($error_message)) : ?>
+            <!-- Exibe mensagem de erro se houver -->
+            <div class="alert alert-danger">
+                <?php echo $error_message; ?>
+            </div>
+        <?php endif; ?>
         <form action="login.php" method="post">
             <div class="form-group">
                 <div class="input-group">
