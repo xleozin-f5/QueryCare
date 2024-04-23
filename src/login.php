@@ -1,25 +1,15 @@
 <?php
+include "../inc/connect.inc";
 // Habilitar a exibição de erros de PHP
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-session_start();
-
-// Verifica se o usuário não está logado
-if (!isset($_SESSION["user"])) {
-    header("Location: /QueryCare/src/login.php");
-    exit();
-}
 
 // Verifica se o formulário de login foi enviado
 if (isset($_POST["login"])) {
     // Obtém os dados do formulário
     $healthnumber = $_POST["healthnumber"];
     $password = $_POST["password"];
-
-    // Inclui o arquivo de configuração do banco de dados
-    require_once "./inc/database.php";
 
     // Consulta para selecionar o usuário com o número de saúde fornecido
     $sql = "SELECT * FROM users WHERE healthnumber = ?";
@@ -36,7 +26,7 @@ if (isset($_POST["login"])) {
             // Define a variável de sessão para indicar que o usuário está logado
             $_SESSION["user"] = "yes";
             // Redireciona para a página inicial
-            header("Location: index.php");
+            header("Location: ../public/menupac.html");
             exit();
         } else {
             // Exibe uma mensagem de erro se a senha estiver incorreta
@@ -83,6 +73,7 @@ if (isset($_POST["login"])) {
 </head>
 <body>
     <div class="container">
+     <h2 class="text-center">Login QueryCare</h2> 
         <?php if (isset($error_message)) : ?>
             <!-- Exibe mensagem de erro se houver -->
             <div class="alert alert-danger">
@@ -107,7 +98,7 @@ if (isset($_POST["login"])) {
             </div>
         </form>
         <div class="register-link">
-            <p>Não tens conta? <a href="registration.php">Regista-te aqui</a>.</p>
+        <p>Não tens conta? <a href="./registration.php">Regista-te aqui</a>.</p>
         </div>
     </div>
     <!-- Font Awesome Script -->

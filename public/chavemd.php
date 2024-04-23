@@ -12,17 +12,24 @@
   <style>
     /* Pq não em um arquivo css? */
     body {
-      background-color: #f7f7f7;
-      padding: 50px;
+      background-image: url('../assets/img/background.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .container {
-      max-width: 600px;
-      margin: 0 auto;
       background-color: #fff;
       padding: 30px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 80%;
+      margin: 20px; /* Adicionando margem */
     }
 
     h1 {
@@ -43,9 +50,6 @@
     }
 
     .icon-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       margin-bottom: 20px;
     }
 
@@ -74,16 +78,14 @@
 
 <body>
   <div class="container">
-    <div class="icon-container">
+    <div class="icon-container text-center">
       <i class="fas fa-cog fa-5x spin"></i> <!-- Ícone do Font Awesome para uma engrenagem -->
     </div>
-    <h1>EM DESENVOLVIMENTO...</h1>
-    <p>Esta função está em desenvolvimento, porém prometemos ser breves!</p>
-    <p class="contact-info">Para qualquer dúvida ou assistência, entre em contato conosco em <a href="mailto:suporte@querycare.pt">suporte@querycare.pt</a></p>
-    <!-- Botão Bootstrap com PHP para redirecionar para a página PHP -->
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-      <button type="submit" class="btn btn-primary" name="redirect">Login Page</button>
-    </form>
+    <h1 class="text-center">EM DESENVOLVIMENTO...</h1>
+    <p class="text-center">Esta função está em desenvolvimento, porém prometemos ser breves!</p>
+    <p class="contact-info text-center">Para qualquer dúvida ou assistência, entre em contato conosco em <a href="mailto:suporte@querycare.pt">suporte@querycare.pt</a></p>
+    <!-- Usando um link em vez de um botão dentro de um formulário -->
+    <a href="./login.html" class="btn btn-primary btn-block">Voltar</a>
   </div>
   <!-- Adicionando o Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -92,13 +94,3 @@
 </body>
 
 </html>
-
-<?php
-// Verifica se o botão foi clicado
-//ISSO AQUI PODE SER FEITO NO ARQUIVO DE SRC, NÃO AQUI
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['redirect'])) {
-  // Redireciona para a página PHP
-  header("Location: ../public/upcarry/login.html");
-  exit;
-}
-?>

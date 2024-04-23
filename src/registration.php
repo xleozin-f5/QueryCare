@@ -1,19 +1,9 @@
 <?php
+include "../inc/connect.inc";
 session_start(); // Inicia a sessão
-echo "Ponto 1: Sessão iniciada.<br>"; // Mensagem de depuração
-
-// Verifica se a sessão do usuário não está definida e se a página não foi acessada após o envio do formulário
-if (!isset($_SESSION["user"]) && !isset($_POST["submit"])) {
-    echo "Ponto 2: Usuário não autenticado e formulário não enviado. Redirecionando para login.php...<br>"; // Mensagem de depuração
-    header("Location: login.php"); // Redireciona para a página de login
-    exit(); // Encerra o script
-}
-
-require_once "./inc/database.php";
 
 // Verifica se o formulário foi enviado
 if (isset($_POST["submit"])) {
-    echo "Ponto 3: Formulário enviado.<br>"; // Mensagem de depuração
     $fullName = $_POST["fullname"];
     $healthnumber = $_POST["healthnumber"];
     $password = $_POST["password"];
@@ -44,6 +34,7 @@ if (isset($_POST["submit"])) {
 
     // Verifica se há algum erro antes de fazer a consulta ao banco de dados
     if (count($errors) == 0) {
+        
         $sql = "SELECT * FROM users WHERE healthnumber = ?";
         $stmt = mysqli_stmt_init($conn);
         if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -84,31 +75,45 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QueryCare - Register</title>
+    <title>Registro - Hospital</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-QVfVzUCyYNfIZ4LGy5ou7crXKUu9IxTqakm+zaMPj2jM9TkJhV/lGcxkRQDJkEJHGV34nO6sAQlCKGZ+zq4eew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body style="background-image: url('../assets/img/hplogin.jpg'); background-size: cover; background-position: center; height: 100vh;">
     <div class="container">
-        <form action="../src/registration.php" method="post">
+        <h2 class="text-center">Register QueryCare</h2>
+        <form action="./registration.php" method="post">
             <div class="form-group">
-                <input type="text" class="form-control" name="fullname" placeholder="Nome Completo">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" name="fullname" placeholder="Nome Completo" required>
+                </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="healthnumber" placeholder="Número de utente de saúde" maxlength="9">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    <input type="text" class="form-control" name="healthnumber" placeholder="Número de Utente de Saúde" maxlength="9" required>
+                </div>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Palavra de Passe">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" name="password" placeholder="Palavra de Passe" required>
+                </div>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="repeat_password" placeholder="Repete a Palavra de Passe">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" class="form-control" name="repeat_password" placeholder="Repetir a Palavra de Passe" required>
+                </div>
             </div>
             <div class="form-btn">
-                <input type="submit" class="btn btn-primary" value="Aceder" name="submit">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Registrar</button>
             </div>
         </form>
         <div>
-            <p>Já tem conta na QueryCare? Faça login <a href="login.php">aqui</a>.</p>
+            <p class="text-center">Já tem uma conta na QueryCare? Faça login <a href="./login.php">aqui</a>.</p>
         </div>
     </div>
 </body>
