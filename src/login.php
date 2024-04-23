@@ -1,10 +1,12 @@
 <?php
 session_start();
+
 if (!isset($_SESSION["user"])) {
-    header("Location: index.php");
+    header("Location: /QueryCare/src/login.php");
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -13,12 +15,12 @@ if (!isset($_SESSION["user"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QueryCare - Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
     <style>
       /* Pq não em um arquivo css? */
         body {
             font-family: Arial, sans-serif;
-            background: url('../assets/hplogin.jpg') no-repeat center center fixed;
+            background: url('../assets/img/hplogin.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -44,7 +46,7 @@ if (!isset($_SESSION["user"])) {
         if (isset($_POST["login"])) {
             $healthnumber = $_POST["healthnumber"];
             $password = $_POST["password"];
-            require_once "database.php";
+            require_once "./inc/database.php";
             $sql = "SELECT * FROM users WHERE healthnumber = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("s", $healthnumber);
