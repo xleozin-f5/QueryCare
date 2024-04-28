@@ -45,7 +45,7 @@ if (isset($_POST["submit"])) {
                 array_push($errors, "Este número de saúde já foi registado!");
             }
         } else {
-            array_push($errors, "Erro na preparação da consulta");
+            array_push($errors, "Erro na preparação da consulta: " . mysqli_error($conn));
         }
     }
 
@@ -58,6 +58,7 @@ if (isset($_POST["submit"])) {
         // Se não houver erros, insere os dados do usuário no banco de dados
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (full_name, healthnumber, password) VALUES (?, ?, ?)";
+        $stmt = mysqli_stmt_init($conn);
         if (mysqli_stmt_prepare($stmt, $sql)) {
             mysqli_stmt_bind_param($stmt, "sss", $fullName, $healthnumber, $passwordHash);
             mysqli_stmt_execute($stmt);

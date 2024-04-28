@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.background {
+    background-color: #f2f2f2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form h2 {
+    text-align: center;
+    color: #333;
+}
+
+.booking-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.booking-form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.booking-form button:hover {
+    background-color: #0056b3;
+}
