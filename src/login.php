@@ -24,9 +24,10 @@ if (isset($_POST["login"])) {
         // Verifica se a senha está correta
         if (password_verify($password, $user["password"])) {
             // Define a variável de sessão para indicar que o usuário está logado
-            $_SESSION["user"] = "yes";
+            $_SESSION["logged_in"] = "yes";
+            $_SESSION["usrID"] = $healthnumber;
             // Redireciona para a página inicial
-            header("Location: ../public/menupac.html");
+            header("Location: ../public/menupac.php");
             exit();
         } else {
             // Exibe uma mensagem de erro se a senha estiver incorreta
@@ -98,7 +99,7 @@ if (isset($_POST["login"])) {
             </div>
         </form>
         <div class="register-link">
-        <p>Não tens conta? <a href="./registration.php">Regista-te aqui</a>.</p>
+        <p>Não tens conta? <a href="../public/registration.php">Regista-te aqui</a>.</p>
         </div>
     </div>
     <!-- Font Awesome Script -->
