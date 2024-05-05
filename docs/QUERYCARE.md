@@ -14,7 +14,7 @@ Dentro do sistema QueryCare, os usuários encontrarão várias abas que abrangem
 
 - Gestão de Hospitais e Clínicas: Permitindo o registro e a manutenção de informações detalhadas sobre hospitais e clínicas associadas.
 
--  de Médicos: Facilitando o registro e o gerenciamento de perfis de médicos, incluindo suas especialidades e informações de contato.
+-  de Médicos: Facilitando o registro e o gerenciamento de perfis de médicos e informações de contato.
 
 - Sistema de Login e Registro: Garantindo acesso seguro e personalizado para médicos, pacientes e administradores.
 
