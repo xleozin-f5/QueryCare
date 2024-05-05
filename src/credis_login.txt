@@ -1,0 +1,15 @@
+**Admin Login Details**
+
+Email   : admin@ccbd.com
+Password: Password@123
+
+
+**Doctor Login Details**
+
+Cedula      : YDS7L
+Password: password
+
+**Patient Login Details**
+
+Sns   : 
+Password: 
