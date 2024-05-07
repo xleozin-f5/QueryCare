@@ -3,33 +3,29 @@
 	include('assets/inc/config.php');
 		if(isset($_POST['update_doc']))
 		{
-			$doc_fname=$_POST['doc_fname'];
-			$doc_lname=$_POST['doc_lname'];
-			$doc_number=$_GET['doc_number'];
-            $doc_email=$_POST['doc_email'];
-            $doc_pwd=sha1(md5($_POST['doc_pwd']));
-            $doc_dpic=$_FILES["doc_dpic"]["name"];
-		    move_uploaded_file($_FILES["doc_dpic"]["tmp_name"],"../doc/assets/images/users/".$_FILES["doc_dpic"]["name"]);
-
+            $email=$_GET['email'];
+            $pwd=sha1(md5($_GET['pwd']));
+            $status = $_POST['status'];
+                        
             //sql to insert captured values
-			$query="UPDATE his_docs SET doc_fname=?, doc_lname=?,  doc_email=?, doc_pwd=?, doc_dpic=? WHERE doc_number = ?";
-			$stmt = $mysqli->prepare($query);
-			$rc=$stmt->bind_param('ssssss', $doc_fname, $doc_lname, $doc_email, $doc_pwd, $doc_dpic, $doc_number);
-			$stmt->execute();
-			/*
-			*Use Sweet Alerts Instead Of This Fucked Up Javascript Alerts
-			*echo"<script>alert('Successfully Created Account Proceed To Log In ');</script>";
-			*/ 
-			//declare a varible which will be passed to alert function
-			if($stmt)
+            $query="UPDATE his_docs SET doc_pwd =? WHERE doc_email = ?";
+            $query1 = "UPDATE his_pwdresets SET status =? WHERE email = ?";
+            $stmt = $mysqli->prepare($query);
+            $stmt1 = $mysqli->prepare($query1);
+            $rc=$stmt->bind_param('ss', $pwd, $email);
+            $rs=$stmt1->bind_param('ss', $status, $email);
+            $stmt->execute();
+            $stmt1->execute();
+			
+			if($stmt && $stmt1)
 			{
-				$success = "Employee Details Updated";
+				$success = "Password Updated";
 			}
-			else {
+            else
+            {
 				$err = "Please Try Again Or Try Later";
-			}
-			
-			
+            }
+            			
 		}
 ?>
 <!--End Server Side-->
@@ -67,22 +63,22 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="his_admin_dashboard.php">Painel</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Médico</a></li>
-                                            <li class="breadcrumb-item active">Gerenciar Médico</li>
+                                            <li class="breadcrumb-item"><a href="qc_admin_dashboard.php">Dashboard</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Password Resets</a></li>
+                                            <li class="breadcrumb-item active">Manage </li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Atualizar Detalhes do Médico</h4>
+                                    <h4 class="page-title">Update Employee Password Details</h4>
                                 </div>
                             </div>
                         </div>     
                         <!-- end page title --> 
                         <!-- Form row -->
                         <?php
-                            $doc_number=$_GET['doc_number'];
-                            $ret="SELECT  * FROM his_docs WHERE doc_number=?";
+                            $email=$_GET['email'];
+                            $ret="SELECT  * FROM his_pwdresets WHERE email=?";
                             $stmt= $mysqli->prepare($ret) ;
-                            $stmt->bind_param('i',$doc_number);
+                            $stmt->bind_param('i',$email);
                             $stmt->execute() ;//ok
                             $res=$stmt->get_result();
                             //$cnt=1;
@@ -96,35 +92,24 @@
                                         <h4 class="header-title">Fill all fields</h4>
                                         <!--Add Patient Form-->
                                         <form method="post" enctype="multipart/form-data">
-                                            <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4" class="col-form-label">Primeiro nome</label>
-                                                    <input type="text" required="required" value="<?php echo $row->doc_fname;?>" name="doc_fname" class="form-control" id="inputEmail4" >
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4" class="col-form-label">Sobrenome</label>
-                                                    <input required="required" type="text" value="<?php echo $row->doc_lname;?>" name="doc_lname" class="form-control"  id="inputPassword4">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="inputAddress" class="col-form-label">Email</label>
-                                                <input required="required" type="email" value="<?php echo $row->doc_email;?>" class="form-control" name="doc_email" id="inputAddress">
-                                            </div>
                                             
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="inputCity" class="col-form-label">Password</label>
-                                                    <input required="required"  type="password" name="doc_pwd" class="form-control" id="inputCity">
-                                                </div> 
-                                                
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputCity" class="col-form-label">Foto de Perfil</label>
-                                                    <input required="required"  type="file" name="doc_dpic" class="btn btn-success form-control"  id="inputCity">
+                                                    <label for="inputCity" class="col-form-label">Email</label>
+                                                    <input required="required"  type="email" value="<?php echo $row->email;?>" class="form-control" name="doc_email" id="inputCity">
                                                 </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="inputCity" class="col-form-label">Password</label>
+                                                    <input required="required"  type="text" value="<?php echo $row->pwd;?>"  name="doc_pwd" class="form-control" id="inputCity">
+                                                </div>
+                                                <div class="form-group col-md-6" style="display:none">
+                                                    <label for="inputCity" class="col-form-label">Reset Status</label>
+                                                    <input required="required"  type="text" value="Reset"  name="status" class="form-control" id="inputCity">
+                                                </div>  
+                                                
                                             </div>                                            
 
-                                            <button type="submit" name="update_doc" class="ladda-button btn btn-success" data-style="expand-right">Add Employee</button>
+                                            <button type="submit" name="update_doc" class="ladda-button btn btn-success" data-style="expand-right">Update Password</button>
 
                                         </form>
                                         <!--End Patient Form-->

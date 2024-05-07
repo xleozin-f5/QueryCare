@@ -1,9 +1,4 @@
-<!--Server side code to handle  sign up-->
-<!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
---><?php
+<?php
 	session_start();
 	include('assets/inc/config.php');
 		if(isset($_POST['admin_sup']))
@@ -90,7 +85,7 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                         <div class="card-body p-4">
 
                             <div class="text-center w-75 m-auto">
-                                <a href="his_admin_register.php">
+                                <a href="qc_admin_register.php">
                                     <span><img src="assets/images/logo-dark.png" alt="" height="22"></span>
                                 </a>
                                 <p class="text-muted mb-4 mt-3">Don't have an account? Create your account, it takes less than a minute</p>

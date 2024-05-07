@@ -50,7 +50,7 @@
                 <!-- <div class="dropdown-divider"></div> -->
 
                 <!-- item-->
-                <a href="his_admin_logout_partial.php" class="dropdown-item notify-item">
+                <a href="qc_admin_logout_partial.php" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
                     <span>Sair</span>
                 </a>
@@ -62,7 +62,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="his_admin_dashboard.php" class="logo text-center">
+        <a href="qc_admin_dashboard.php" class="logo text-center">
             <span class="logo-lg">
             <img src="assets/images/logo.png" alt="" height="50">
             </span>
@@ -82,13 +82,13 @@
             </a>
             <div class="dropdown-menu">
                 <!-- item-->
-                <a href="his_admin_add_employee.php" class="dropdown-item">
+                <a href="qc_admin_add_employee.php" class="dropdown-item">
                     <i class="fe-users mr-1"></i>
                     <span>Médico</span>
                 </a>
 
                 <!-- item-->
-                <a href="his_admin_register_patient.php" class="dropdown-item">
+                <a href="qc_admin_register_patient.php" class="dropdown-item">
                     <i class="fe-activity mr-1"></i>
                     <span>Utente</span>
                 </a>

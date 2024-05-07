@@ -1,17 +1,13 @@
-<!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
---><?php
+<?php
   session_start();
   include('assets/inc/config.php');
   include('assets/inc/checklogin.php');
   check_login();
   $aid=$_SESSION['ad_id'];
-  if(isset($_GET['deleteRequest']))
+  if(isset($_GET['delete']))
   {
-        $id=intval($_GET['deleteRequest']);
-        $adn="DELETE FROM his_pwdresets WHERE  id = ?";
+        $id=intval($_GET['delete']);
+        $adn="delete from his_patients where pat_id=?";
         $stmt= $mysqli->prepare($adn);
         $stmt->bind_param('i',$id);
         $stmt->execute();
@@ -19,7 +15,7 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
   
           if($stmt)
           {
-            $success = "Deleted";
+            $success = "Patients Records Deleted";
           }
             else
             {
@@ -62,12 +58,12 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Password Resets</a></li>
-                                            <li class="breadcrumb-item active">Manage</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Painel</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Pacientes</a></li>
+                                            <li class="breadcrumb-item active">Gerir Pacientes</li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Accounts Requesting For Password Resets</h4>
+                                    <h4 class="page-title">Gerenciar Detalhes do Paciente</h4>
                                 </div>
                             </div>
                         </div>     
@@ -100,41 +96,39 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th data-toggle="true">Email</th>
-                                                <th data-hide="phone">Password Reset Token</th>
-                                                <th data-hide="phone">Date Requested</th>
-                                                <th data-hide="phone">Action</th>
+                                                <th data-toggle="true">Pacientes</th>
+                                                <th data-hide="phone">Numero</th>
+                                                <th data-hide="phone">Morada</th>
                                             </tr>
                                             </thead>
                                             <?php
-                                                
-                                                $ret="SELECT * FROM  his_pwdresets"; 
+                                            /*
+                                                *get details of allpatients
+                                                *
+                                            */
+                                                $ret="SELECT * FROM  his_patients ORDER BY RAND() "; 
+                                                //sql code to get to ten docs  randomly
                                                 $stmt= $mysqli->prepare($ret) ;
                                                 $stmt->execute() ;//ok
                                                 $res=$stmt->get_result();
                                                 $cnt=1;
                                                 while($row=$res->fetch_object())
                                                 {
-                                                    //trim timestamp to DD-MM-YYYY Formart
-                                                    $requestedtime = $row->created_at;
-
-                                                    if($row->status == 'Pending')
-                                                    {
-                                                        $action = "<td><a href='his_admin_update_doc_password.php?email=$row->email&pwd=$row->pwd' class='badge badge-danger'><i class='fas fa-edit'></i>Reset Password</a></td>";
-                                                    }
-                                                    else
-                                                    {
-                                                        $action = "<td><a href='mailto:$row->email?subject=Password Reset Request&body=Token:$row->token,   New Password=$row->pwd' class='badge badge-success'><i class='fas fa-envelope'></i>Send Mail</a></td>";
-                                                    }
                                             ?>
 
                                                 <tbody>
                                                 <tr>
                                                     <td><?php echo $cnt;?></td>
-                                                    <td><?php echo $row->email;?></td>
-                                                    <td><?php echo $row->token;?></td>
-                                                    <td><?php echo date('d-M-Y h:m'), strtotime($requestedtime);?></td>
-                                                    <?php echo $action;?>
+                                                    <td><?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?></td>
+                                                    <td><?php echo $row->pat_number;?></td>
+                                                    <td><?php echo $row->pat_addr;?></td>
+                                                    <td><?php echo $row->pat_type;?></td>
+                                                    
+                                                    <td>
+                                                        <a href="qc_admin_manage_patient.php?delete=<?php echo $row->pat_id;?>" class="badge badge-danger"><i class=" mdi mdi-trash-can-outline "></i> Apagar</a>
+                                                        <a href="qc_admin_view_single_patient.php?pat_id=<?php echo $row->pat_id;?>&&pat_number=<?php echo $row->pat_number;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> Ver</a>
+                                                        <a href="qc_admin_update_single_patient.php?pat_id=<?php echo $row->pat_id;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Atualizar</a>
+                                                    </td>
                                                 </tr>
                                                 </tbody>
                                             <?php  $cnt = $cnt +1 ; }?>

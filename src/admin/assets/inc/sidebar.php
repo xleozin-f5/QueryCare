@@ -9,7 +9,7 @@
                 <li class="menu-title">QueryCare - menu</li>
 
                 <li>
-                    <a href="his_admin_dashboard.php">
+                    <a href="qc_admin_dashboard.php">
                         <i class="fe-airplay"></i>
                         <span> Painel </span>
                     </a>
@@ -24,13 +24,13 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="his_admin_register_patient.php">Registar Paciente</a>
+                            <a href="qc_admin_register_patient.php">Registar Paciente</a>
                         </li>
                         <li>
-                            <a href="his_admin_view_patients.php">Ver Pacientes</a>
+                            <a href="qc_admin_view_patients.php">Ver Pacientes</a>
                         </li>
                         <li>
-                            <a href="his_admin_manage_patient.php">Gerir Pacientes</a>
+                            <a href="qc_admin_manage_patient.php">Gerir Pacientes</a>
                         </li>
                         <hr>
                     </ul>
@@ -43,13 +43,13 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="his_admin_add_employee.php">Adicionar Médico</a>
+                            <a href="qc_admin_add_employee.php">Adicionar Médico</a>
                         </li>
                         <li>
-                            <a href="his_admin_view_employee.php">Ver Médico</a>
+                            <a href="qc_admin_view_employee.php">Ver Médico</a>
                         </li>
                         <li>
-                            <a href="his_admin_manage_employee.php">Gerir Médico</a>
+                            <a href="qc_admin_manage_employee.php">Gerir Médico</a>
                         </li>
                         <hr>
                     </ul>

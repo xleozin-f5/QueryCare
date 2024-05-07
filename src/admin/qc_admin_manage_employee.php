@@ -127,9 +127,9 @@
                                                 <td><?php echo $row->doc_email;?></td>
 
                                                 <td>
-                                                    <a href="his_admin_manage_employee.php?delete=<?php echo $row->doc_id;?>" class="badge badge-danger"><i class=" mdi mdi-trash-can-outline "></i> Apagar</a>
-                                                    <a href="his_admin_view_single_employee.php?doc_id=<?php echo $row->doc_id;?>&&doc_number=<?php echo $row->doc_number;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> Ver</a>
-                                                    <a href="his_admin_update_single_employee.php?doc_number=<?php echo $row->doc_number;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Atualizar</a>
+                                                    <a href="qc_admin_manage_employee.php?delete=<?php echo $row->doc_id;?>" class="badge badge-danger"><i class=" mdi mdi-trash-can-outline "></i> Apagar</a>
+                                                    <a href="qc_admin_view_single_employee.php?doc_id=<?php echo $row->doc_id;?>&&doc_number=<?php echo $row->doc_number;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> Ver</a>
+                                                    <a href="qc_admin_update_single_employee.php?doc_number=<?php echo $row->doc_number;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Atualizar</a>
                                                 </td>
                                             </tr>
                                         </tbody>
