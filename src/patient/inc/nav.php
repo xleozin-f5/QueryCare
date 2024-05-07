@@ -25,7 +25,7 @@
                 <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Bem-vindo(a)!</h6>
                 </div>
-                <a href="qc_doc_update-account.php" class="dropdown-item notify-item">
+                <a href="his_doc_update-account.php" class="dropdown-item notify-item">
                     <i class="fas fa-user-tag"></i>
                     <span>Editar conta</span>
                 </a>
@@ -34,7 +34,7 @@
                 <div class="dropdown-divider"></div>
 
                 <!-- item-->
-                <a href="qc_doc_logout_partial.php" class="dropdown-item notify-item">
+                <a href="his_doc_logout_partial.php" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
                     <span>Sair</span>
                 </a>
@@ -45,7 +45,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="qc_admin_dashboard.php" class="logo text-center">
+        <a href="his_admin_dashboard.php" class="logo text-center">
             <span class="logo-lg">
                 <img src="assets/images/logo.png" alt="" height="50">
                 <!-- <span class="logo-lg-text-light">UBold</span> -->

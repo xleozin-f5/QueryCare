@@ -10,7 +10,7 @@
                 <li class="menu-title">QueryCare - Menu</li>
 
                 <li>
-                    <a href="qc_doc_dashboard.php">
+                    <a href="his_doc_dashboard.php">
                         <i class="fe-airplay"></i>
                         <span> Painel </span>
                     </a>
@@ -25,13 +25,13 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="qc_doc_register_patient.php">Registar Paciente</a>
+                            <a href="his_doc_register_patient.php">Registar Paciente</a>
                         </li>
                         <li>
-                            <a href="qc_doc_view_patients.php">Ver Pacientes</a>
+                            <a href="his_doc_view_patients.php">Ver Pacientes</a>
                         </li>
                         <li>
-                            <a href="qc_doc_manage_patient.php">Gerir Pacientes</a>
+                            <a href="his_doc_manage_patient.php">Gerir Pacientes</a>
                         </li>
                         <hr>
                     </ul>

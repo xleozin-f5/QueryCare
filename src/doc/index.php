@@ -17,7 +17,7 @@
         //$ldate=date('d/m/Y h:i:s', time());
         if($rs)
             {//if its sucessfull
-                header("location:his_doc_dashboard.php");
+                header("location:qc_doc_dashboard.php");
             }
 
         else
@@ -131,13 +131,6 @@
                         </div> <!-- end card-body -->
                     </div>
                     <!-- end card -->
-
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p> <a href="his_doc_reset_pwd.php" class="text-white-50 ml-1">Esqueceu a sua password ?</a></p>
-                            <!-- <p class="text-white-50">Don't have an account? <a href="his_admin_register.php" class="text-white ml-1"><b>Sign Up</b></a></p>-->
-                        </div> <!-- end col -->
-                    </div>
                     <!-- end row -->
 
                 </div> <!-- end col -->

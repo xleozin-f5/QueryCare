@@ -158,7 +158,7 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                                                 <td><?php echo $row->pat_type;?></td>
 
                                                 <td>
-                                                    <a href="his_doc_discharge_single_patient.php?pat_number=<?php echo $row->pat_id;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Discharge</a>
+                                                    <a href="qc_doc_discharge_single_patient.php?pat_number=<?php echo $row->pat_id;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Discharge</a>
                                                 </td>
                                             </tr>
                                         </tbody>
