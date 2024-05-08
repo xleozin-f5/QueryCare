@@ -2,6 +2,6 @@
 $dbuser="root";
 $dbpass="";
 $host="localhost";
-$db="hms_code_camp_bd";
+$db="QueryCare";
 $mysqli=new mysqli($host,$dbuser, $dbpass, $db);
 ?>
