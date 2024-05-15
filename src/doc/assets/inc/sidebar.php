@@ -39,19 +39,19 @@
 
                 <li>
                     <a href="javascript: void(0);">
-                        <i class="fab fa-accessible-icon "></i>
+                        <i class="far fa-calendar-alt"></i>
                         <span> Consultas </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="qc_doc_register_patient.php">Agendar Consulta</a>
+                            <a href="#">Agendar Consulta</a>
                         </li>
                         <li>
-                            <a href="qc_doc_view_patients.php">Gerir Consultas</a>
+                            <a href="#">Gerir Consultas</a>
                         </li>
                         <li>
-                            <a href="qc_doc_manage_patient.php">Ver Consultas</a>
+                            <a href="qc_doctor_view_cons.php">Ver Consultas</a>
                         </li>
                         <hr>
                     </ul>
