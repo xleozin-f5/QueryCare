@@ -117,7 +117,7 @@ $result = $mysqli->query($sql);
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form method="post" action="update_consulta.php">
+                    <form method="post" action="qc_pati_updatecons.php">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="editDataConsulta">Nova Data da Consulta</label>
