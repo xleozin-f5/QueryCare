@@ -6,7 +6,7 @@ Password: Password@123
 
 **Doctor Login Details**
 
-ID      : YDS7L
+ID      : ccbd
 Password: password
 
 

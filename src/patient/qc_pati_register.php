@@ -87,15 +87,11 @@ if(isset($_POST['patient_register'])) {
                                     <input class="form-control" name="pat_dob" type="date" id="pat_dob" required="" placeholder="Digite sua data de nascimento">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="pat_age">Idade</label>
-                                    <input class="form-control" name="pat_age" type="number" id="pat_age" required="" placeholder="Digite sua idade">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_number">ID do Paciente</label>
+                                    <label for="pat_number">N SnS</label>
                                     <input class="form-control" name="pat_number" type="text" id="pat_number" required="" placeholder="Crie seu ID de paciente">
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label for="pat_addr">Endereço</label>
+                                    <label for="pat_addr">Morada</label>
                                     <input class="form-control" name="pat_addr" type="text" id="pat_addr" required="" placeholder="Digite seu endereço">
                                 </div>
                                 <div class="form-group mb-3">
@@ -106,12 +102,7 @@ if(isset($_POST['patient_register'])) {
                                     <label for="pat_type">Tipo de Paciente</label>
                                     <select class="form-control" name="pat_type" id="pat_type" required="">
                                         <option value="InPatient">Interno</option>
-                                        <option value="OutPatient">Externo</option>
                                     </select>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_ailment">Doença</label>
-                                    <input class="form-control" name="pat_ailment" type="text" id="pat_ailment" required="" placeholder="Digite sua doença">
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="pat_pwd">Senha</label>
@@ -121,7 +112,7 @@ if(isset($_POST['patient_register'])) {
                                     <button class="btn btn-success btn-block" name="patient_register" type="submit"> Registrar </button>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <p class="text-muted">Já tem uma conta? <a href="patient_login.php" class="text-primary">Faça login</a></p>
+                                    <p class="text-muted">Já tem uma conta? <a href="index.php" class="text-primary">Faça login</a></p>
                                 </div>
                             </form>
                         </div>
