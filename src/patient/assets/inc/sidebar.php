@@ -25,13 +25,13 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="qc_doc_register_patient.php">Agendar Consulta</a>
+                            <a href="qc_pati_create_cons.php">Agendar Consulta</a>
                         </li>
                         <li>
-                            <a href="qc_doc_view_patients.php">Gerir Consulta</a>
+                            <a href="qc_pati_view_cons.php">Gerir Consulta</a>
                         </li>
                         <li>
-                            <a href="qc_doc_manage_patient.php">Ver consultas</a>
+                            <a href="qc_pati_manage_cons.php">Ver consultas</a>
                         </li>
                         <hr>
                     </ul>
