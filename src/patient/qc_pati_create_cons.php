@@ -5,10 +5,10 @@ include('assets/inc/checklogin.php');
 check_login();
 
 // Função para agendar uma nova consulta
-function agendarConsulta($conn, $nome_paciente, $endereco_paciente, $idade_paciente, $numero_paciente, $data_consulta) {
+function agendarConsulta($conn, $nome_paciente, $endereco_paciente, $idade_paciente, $numero_paciente, $data_consulta, $medico_id) {
     // Preparar a declaração SQL
-    $stmt = $conn->prepare("INSERT INTO his_medical_records (mdr_pat_name, mdr_pat_adr, mdr_pat_age, mdr_pat_number, mdr_date_rec) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $nome_paciente, $endereco_paciente, $idade_paciente, $numero_paciente, $data_consulta);
+    $stmt = $conn->prepare("INSERT INTO his_medical_records (mdr_pat_name, mdr_pat_adr, mdr_pat_age, mdr_pat_number, mdr_date_rec, mdr_doc_id) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssi", $nome_paciente, $endereco_paciente, $idade_paciente, $numero_paciente, $data_consulta, $medico_id);
 
     // Executar a declaração SQL
     return $stmt->execute();
@@ -21,9 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idade_paciente = $_POST["idade_paciente"];
     $numero_paciente = $_POST["numero_paciente"];
     $data_consulta = $_POST["data_consulta"];
+    $medico_id = $_POST["medico_id"]; // Novo campo para selecionar o médico
 
     // Chamar a função para agendar a consulta
-    agendarConsulta($mysqli, $nome_paciente, $endereco_paciente, $idade_paciente, $numero_paciente, $data_consulta);
+    agendarConsulta($mysqli, $nome_paciente, $endereco_paciente, $idade_paciente, $numero_paciente, $data_consulta, $medico_id);
 }
 ?>
 <!DOCTYPE html>
@@ -110,6 +111,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <input type="time" name="hora_consulta" class="form-control" required>
                                             </div>
                                             <div class="form-group">
+                                                <label for="medico_id">Médico</label>
+                                                <select name="medico_id" class="form-control" required>
+                                                    <?php
+                                                        // Consulta para obter a lista de médicos da tabela his_docs
+                                                        $result = $mysqli->query("SELECT doc_id, doc_fname FROM his_docs");
+                                                        // Loop através dos resultados e exibir as opções do menu suspenso
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo "<option value='" . $row['doc_id'] . "'>" . $row['doc_fname'] . "</option>";
+                                                        }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="motivo">Motivo da consulta</label>
                                                 <input type="text" name="motivo" class="form-control" required>
                                             </div>
@@ -133,40 +147,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
-
-        <!-- Footable js -->
-        <script src="assets/libs/footable/footable.all.min.js"></script>
-
-        <!-- Init js -->
-        <script src="assets/js/pages/foo-tables.init.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
-
-        <!-- Footer Start -->
-        <?php include('assets/inc/footer.php');?>
-        <!-- end Footer -->
-
-        <!-- Pop-up para consulta agendada com sucesso -->
-        <div id="popup" class="popup success">
-            <i class="fas fa-check-circle icon"></i>
-            <p>Consulta agendada com sucesso!</p>
-        </div>
-
-        <!-- Script para mostrar o pop-up -->
-        <script>
-            // Verificar se a consulta foi agendada com sucesso
-            <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($conn->error)): ?>
-                // Mostrar o pop-up
-                document.getElementById("popup").style.display = "block";
-                // Ocultar o pop-up após 3 segundos
-                setTimeout(function() {
-                    document.getElementById("popup").style.display = "none";
-                }, 3000);
-            <?php endif; ?>
-        </script>
-    </div>
-    <!-- END wrapper -->
-</body>
-</html>
+        <script src="assets/js/vendor.min.js"></
