@@ -36,6 +36,26 @@
                         <hr>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i class="fab fa-accessible-icon "></i>
+                        <span> Consultas </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="qc_doc_register_patient.php">Agendar Consulta</a>
+                        </li>
+                        <li>
+                            <a href="qc_doc_view_patients.php">Gerir Consultas</a>
+                        </li>
+                        <li>
+                            <a href="qc_doc_manage_patient.php">Ver Consultas</a>
+                        </li>
+                        <hr>
+                    </ul>
+                </li>
                 <li>
             </ul>
 
