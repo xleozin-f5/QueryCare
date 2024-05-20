@@ -1,7 +1,6 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+ini_set('display_errors', 0); // Desativando a exibição de erros no ambiente de produção
+error_reporting(0); // Ocultando todos os tipos de erros
 
 session_start();
 include('assets/inc/config.php'); // Arquivo de configuração
@@ -14,13 +13,16 @@ if(isset($_POST['patient_login'])) {
     $stmt = $mysqli->prepare("SELECT pat_id, pat_number FROM his_patients WHERE pat_number=? AND pat_pwd=?");
     $stmt->bind_param('ss', $pat_number, $pat_pwd);
     $stmt->execute();
-    $stmt->bind_result($pat_id, $pat_number);
-    $rs = $stmt->fetch();
+    $stmt->store_result(); // Armazenando o resultado para verificar o número de linhas retornadas
+    $num_rows = $stmt->num_rows;
 
-    if($rs) {
+    if($num_rows > 0) {
+        $stmt->bind_result($pat_id, $pat_number);
+        $stmt->fetch();
         $_SESSION['pat_id'] = $pat_id;
         $_SESSION['pat_number'] = $pat_number;
         header("location:qc_pati_dashboard.php");
+        exit; // Importante: terminar o script após redirecionar o usuário
     } else {
         $err = "Acesso Negado. Verifique suas credenciais.";
     }
@@ -32,9 +34,6 @@ if(isset($_POST['patient_login'])) {
     <meta charset="utf-8" />
     <title>QueryCare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="" name="description" />
-    <meta content="" name="MartDevelopers" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -42,54 +41,42 @@ if(isset($_POST['patient_login'])) {
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
-    <!-- Sweet Alert -->
-    <script src="assets/js/swal.js"></script>
-    <?php if(isset($success)) {?>
-    <script>
-    setTimeout(function() {
-            swal("Sucesso", "<?php echo $success;?>", "success");
-        },
-        100);
-    </script>
-    <?php } ?>
-    <?php if(isset($err)) {?>
-    <script>
-    setTimeout(function() {
-            swal("Falha", "<?php echo $err;?>", "error");
-        },
-        100);
-    </script>
-    <?php } ?>
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" /> <!-- Adicionando arquivo CSS personalizado -->
 </head>
 <body class="authentication-bg authentication-bg-pattern">
     <div class="account-pages mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5">
-                    <div class="card bg-pattern">
-                        <div class="card-body p-4">
-                            <div class="text-center w-75 m-auto">
-                                <a href="/QueryCare/public/login.html">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="text-center">
+                                <a href="/QueryCare/public/login.html" class="logo">
                                     <span style="font-size: 32px;">QueryCare</span>
                                 </a>
                                 <p class="text-muted mb-4 mt-3">Introduza seu ID e senha para acessar seu painel de paciente.</p>
                             </div>
-                            <form method='post'>
-                                <div class="form-group mb-3">
-                                    <label for="pat_number">ID do Paciente</label>
-                                    <input class="form-control" name="pat_number" type="text" id="pat_number" required="" placeholder="Insira seu ID de paciente">
+                            <form method="post">
+                                <div class="mb-3">
+                                    <label for="pat_number" class="form-label">ID do Paciente</label>
+                                    <input class="form-control" name="pat_number" type="text" id="pat_number" required placeholder="Insira seu ID de paciente">
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_pwd">Senha</label>
-                                    <input class="form-control" name="pat_pwd" type="password" required="" id="pat_pwd" placeholder="Insira sua senha">
+                                <div class="mb-3">
+                                    <label for="pat_pwd" class="form-label">Senha</label>
+                                    <input class="form-control" name="pat_pwd" type="password" required id="pat_pwd" placeholder="Insira sua senha">
                                 </div>
-                                <div class="form-group mb-0 text-center">
+                                <div class="form-group mb-0">
                                     <button class="btn btn-success btn-block" name="patient_login" type="submit"> Entrar </button>
                                 </div>
-                                <div class="text-center mt-4">
+                                <div class="text-center mt-3">
                                     <p class="text-muted">Não tem uma conta? <a href="qc_pati_register.php" class="text-primary">Registre-se</a></p>
                                 </div>
                             </form>
+                            <?php if(isset($err)) {?>
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    <?php echo $err;?>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

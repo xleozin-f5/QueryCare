@@ -10,7 +10,6 @@
   <!-- Adicionando o Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
-    /* Pq não em um arquivo css? */
     body {
       background-image: url('../assets/img/background.png');
       background-size: cover;

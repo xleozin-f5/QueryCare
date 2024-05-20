@@ -1,104 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós - Hospital</title>
-    <link rel="stylesheet" href="../assets/css/aboutus.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportar Incidente</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-yTm9i/vDlCGgB/fGGAj4EfFJL+90et93tqEYjnjChPCV+pHk57c4pXo/m8O2gPkf" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/login2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/report.css"> <!-- Adicionando o CSS separado -->
 </head>
 <body style="background-image: url('../assets/img/background.png'); background-size: cover; background-position: center;">
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="/index.html">
-            <img src="../assets/img/querycareblack.png" alt="Logo" style="max-width: 100px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../public/medicos.html">Médicos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../public/aboutus.html">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../public/login.html">UpCarry</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <a class="navbar-brand" href="../index.html"><img src="../assets/img/querycareblack.png" alt="Logo" style="max-width: 100px; height: auto;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="../public/aboutus.html">Sobre Nós</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="../public/login.html">Login</a>
+          </li>
+      </ul>
+  </div>
 </nav>
 
-<!-- Sobre Nós -->
-<section class="section-about">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto text-center">
-                <h2 class="section-heading">Sobre Nós</h2>
-                <p class="section-subheading">Somos um hospital comprometido com a saúde e o bem-estar de nossos pacientes. Nossa equipe dedicada trabalha incansavelmente para fornecer os melhores cuidados médicos.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Formulário de Contato -->
-<section class="section-contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="contact-form">
-                    <h2 class="section-heading text-center mb-4">Entre em Contato</h2>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Seu Nome" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Seu E-mail" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" class="form-control" id="phone" placeholder="Seu Telefone" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="subject" placeholder="Assunto" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" rows="4" placeholder="Sua Mensagem" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Rodapé -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h4>Contato</h4>
-                <p><strong>Endereço:</strong> Av. do Cávado nº 48 e 54, 4700-084 Braga</p>
-                <p><strong>Telefone:</strong> 253 000 000</p>
-                <p><strong>Email:</strong> contato@querycare.pt</p>
-            </div>
-            <div class="col-md-8">
-                <!-- Adicionar aqui o mapa usando uma API como Google Maps -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.8551510448956!2d-8.40856568457398!3d41.557507879248926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24ec11cd8c82d5%3A0xf1500b630788000d!2sEsprominho!5e0!3m2!1sen!2spt!4v1649784428809!5m2!1sen!2spt" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- Scripts Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>

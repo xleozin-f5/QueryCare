@@ -57,13 +57,7 @@
             </button>
         </li>
         <li class="dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                Criar Nova
-                <i class="mdi mdi-chevron-down"></i>
-            </a>
             <div class="dropdown-menu">
-
-
                 <!-- item-->
                 <a href="his_doc_register_patient.php" class="dropdown-item">
                     <i class="fe-activity mr-1"></i>
