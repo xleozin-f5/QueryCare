@@ -5,7 +5,7 @@ include('assets/inc/checklogin.php');
 check_login();
 
 // Consulta SQL para obter as consultas agendadas do banco de dados
-$sql = "SELECT * FROM his_medical_records";
+$sql = "SELECT * FROM his_medical_records ";
 $result = $mysqli->query($sql);
 ?>
 
