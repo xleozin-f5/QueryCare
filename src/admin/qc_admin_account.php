@@ -58,22 +58,11 @@
 			
 		}
 ?>
-<!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
 <!DOCTYPE html>
 <html lang="en">
 <?php include('assets/inc/head.php');?>
 
 <body>
-    <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
-
     <!-- Begin page -->
     <div id="wrapper">
 
@@ -125,11 +114,6 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                         </div>
                     </div>
                     <!-- end page title -->
-                    <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
                     <div class="row">
                         <div class="col-lg-4 col-xl-4">
                             <div class="card-box text-center">
@@ -145,11 +129,6 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                             </div> <!-- end card-box -->
 
                         </div> <!-- end col-->
-                        <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
                         <div class="col-lg-8 col-xl-8">
                             <div class="card-box">
                                 <ul class="nav nav-pills navtab-bg nav-justified">
@@ -167,11 +146,6 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane show active" id="aboutme">
-                                        <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
                                         <form method="post" enctype="multipart/form-data">
                                             <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle mr-1"></i> Personal Info</h5>
                                             <div class="row">
@@ -203,105 +177,7 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                                                 </div>
 
                                             </div> <!-- end row -->
-                                            <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
-                                            <!--
-                                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-office-building mr-1"></i> Company Info</h5>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="companyname">Company Name</label>
-                                                                <input type="text" class="form-control" id="companyname" placeholder="Enter company name">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="cwebsite">Website</label>
-                                                                <input type="text" class="form-control" id="cwebsite" placeholder="Enter website url">
-                                                            </div>
-                                                        </div> 
-                                                    </div> 
-
-                                                    <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-earth mr-1"></i> Social</h5>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="social-fb">Facebook</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"><i class="fab fa-facebook-square"></i></span>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" id="social-fb" placeholder="Url">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="social-tw">Twitter</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"><i class="fab fa-twitter"></i></span>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" id="social-tw" placeholder="Username">
-                                                                </div>
-                                                            </div>
-                                                        </div> 
-                                                    </div> 
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="social-insta">Instagram</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"><i class="fab fa-instagram"></i></span>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" id="social-insta" placeholder="Url">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="social-lin">Linkedin</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" id="social-lin" placeholder="Url">
-                                                                </div>
-                                                            </div>
-                                                        </div> 
-                                                    </div> 
-
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="social-sky">Skype</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"><i class="fab fa-skype"></i></span>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" id="social-sky" placeholder="@username">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="social-gh">Github</label>
-                                                                <div class="input-group">
-                                                                    <div class="input-group-prepend">
-                                                                        <span class="input-group-text"><i class="fab fa-github"></i></span>
-                                                                    </div>
-                                                                    <input type="text" class="form-control" id="social-gh" placeholder="Username">
-                                                                </div>
-                                                            </div>
-                                                        </div> 
-                                                    </div>  -->
-
-                                            <div class="text-right">
+                                          <div class="text-right">
                                                 <button type="submit" name="update_profile" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
                                             </div>
                                         </form>
@@ -309,12 +185,6 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
 
                                     </div> <!-- end tab-pane -->
                                     <!-- end about me section content -->
-
-                                    <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
 
                                     <div class="tab-pane" id="settings">
                                         <form method="post">
@@ -354,11 +224,6 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
                     <!-- end row-->
 
                 </div> <!-- container -->
-                <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
             </div> <!-- content -->
 
             <!-- Footer Start -->
@@ -374,11 +239,6 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
 
     </div>
     <!-- END wrapper -->
-    <!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
 
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
@@ -390,10 +250,5 @@ Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
     <script src="assets/js/app.min.js"></script>
 
 </body>
-<!-- Author By: MH RONY
-Author Website: https://developerrony.com
-Github Link: https://github.com/dev-mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
--->
 
 </html>
