@@ -1,79 +1,81 @@
 <?php
+  // Iniciar a sessão
   session_start();
+  // Incluir ficheiro de configuração
   include('assets/inc/config.php');
+  // Incluir verificação de login
   include('assets/inc/checklogin.php');
   check_login();
+  // Obter ID do administrador da sessão
   $aid=$_SESSION['ad_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
-<!--Head Code-->
+<!-- Início do cabeçalho -->
 <?php include("assets/inc/head.php");?>
 
 <body>
-    <!-- Begin page -->
+    <!-- Início da página -->
     <div id="wrapper">
 
-        <!-- Topbar Start -->
+        <!-- Início da barra superior -->
         <?php include('assets/inc/nav.php');?>
-        <!-- end Topbar -->
+        <!-- Fim da barra superior -->
 
-        <!-- ========== Left Sidebar Start ========== -->
+        <!-- Início da barra lateral esquerda -->
         <?php include('assets/inc/sidebar.php');?>
-        <!-- Left Sidebar End -->
+        <!-- Fim da barra lateral esquerda -->
 
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-
+        <!-- Início do conteúdo da página -->
         <div class="content-page">
             <div class="content">
 
-                <!-- Start Content-->
+                <!-- Início do conteúdo -->
                 <div class="container-fluid">
 
-                    <!-- start page title -->
+                    <!-- Início do título da página -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
-
                                 <h4 class="page-title">QueryCare - Painel de Gestão Hospitalar</h4>
                             </div>
                         </div>
                     </div>
-                    <!-- end page title -->
+                    <!-- Fim do título da página -->
+
+                    <!-- Início das métricas principais -->
                     <div class="row">
-                        <!--Start InPatients-->
+                        <!-- Início da métrica de pacientes internados -->
                         <div class="col-md-6 col-xl-4">
                             <div class="widget-rounded-circle card-box">
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
-                                            <i class="mdi mdi-hotel   font-22 avatar-title text-primary"></i>
+                                            <i class="mdi mdi-hotel font-22 avatar-title text-primary"></i>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="text-right">
                                             <?php
-                                                    //code for summing up number of in / admitted  patients 
-                                                    $result ="SELECT count(*) FROM his_patients WHERE pat_type = 'InPatient' ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($inpatient);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
+                                                // Código para somar o número de pacientes internados
+                                                $result ="SELECT count(*) FROM his_patients WHERE pat_type = 'InPatient' ";
+                                                $stmt = $mysqli->prepare($result);
+                                                $stmt->execute();
+                                                $stmt->bind_result($inpatient);
+                                                $stmt->fetch();
+                                                $stmt->close();
+                                            ?>
                                             <h3 class="text-dark mt-1"><span data-plugin="counterup"><?php echo $inpatient;?></span></h3>
                                             <p class="text-muted mb-1 text-truncate">Utentes</p>
                                         </div>
                                     </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End InPatients-->
+                                </div> <!-- Fim da linha -->
+                            </div> <!-- Fim do widget-rounded-circle -->
+                        </div> <!-- Fim da coluna -->
+                        <!-- Fim da métrica de pacientes internados -->
 
-                        <!--Start Employees-->
+                        <!-- Início da métrica de funcionários -->
                         <div class="col-md-6 col-xl-4">
                             <div class="widget-rounded-circle card-box">
                                 <div class="row">
@@ -85,30 +87,27 @@
                                     <div class="col-6">
                                         <div class="text-right">
                                             <?php
-                                                    //code for summing up number of employees in the certain Hospital 
-                                                    $result ="SELECT count(*) FROM his_docs ";
-                                                    $stmt = $mysqli->prepare($result);
-                                                    $stmt->execute();
-                                                    $stmt->bind_result($doc);
-                                                    $stmt->fetch();
-                                                    $stmt->close();
-                                                ?>
+                                                // Código para somar o número de funcionários
+                                                $result ="SELECT count(*) FROM his_docs ";
+                                                $stmt = $mysqli->prepare($result);
+                                                $stmt->execute();
+                                                $stmt->bind_result($doc);
+                                                $stmt->fetch();
+                                                $stmt->close();
+                                            ?>
                                             <h3 class="text-dark mt-1"><span data-plugin="counterup"><?php echo $doc;?></span></h3>
                                             <p class="text-muted mb-1 text-truncate">Médicos</p>
                                         </div>
                                     </div>
-                                </div> <!-- end row-->
-                            </div> <!-- end widget-rounded-circle-->
-                        </div> <!-- end col-->
-                        <!--End Employees-->
+                                </div> <!-- Fim da linha -->
+                            </div> <!-- Fim do widget-rounded-circle -->
+                        </div> <!-- Fim da coluna -->
+                        <!-- Fim da métrica de funcionários -->
 
                     </div>
-                    <div class="row">
-                    </div>
+                    <!-- Fim das métricas principais -->
 
-
-
-                    <!--Recently Employed Employees-->
+                    <!-- Início da secção de médicos recentemente empregados -->
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card-box">
@@ -127,31 +126,22 @@
                                             </tr>
                                         </thead>
                                         <?php
-                                                $ret="SELECT * FROM his_docs ORDER BY RAND() LIMIT 10 "; 
-                                                //sql code to get to ten docs  randomly
-                                                $stmt= $mysqli->prepare($ret) ;
-                                                $stmt->execute() ;//ok
-                                                $res=$stmt->get_result();
-                                                $cnt=1;
-                                                while($row=$res->fetch_object())
-                                                {
-                                            ?>
+                                            // SQL para obter os dez médicos de forma aleatória
+                                            $ret="SELECT * FROM his_docs ORDER BY RAND() LIMIT 10 "; 
+                                            $stmt= $mysqli->prepare($ret);
+                                            $stmt->execute();
+                                            $res=$stmt->get_result();
+                                            while($row=$res->fetch_object()) {
+                                        ?>
                                         <tbody>
                                             <tr>
                                                 <td style="width: 36px;">
                                                     <img src="../doc/assets/images/users/<?php echo $row->doc_dpic;?>" alt="img" title="contact-img" class="rounded-circle avatar-sm" />
                                                 </td>
-                                                <td>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row->doc_email;?>
-                                                </td>
-                                                <td>
-                                                    <?php echo $row->doc_dept;?>
-                                                </td>
+                                                <td></td>
+                                                <td><?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?></td>
+                                                <td><?php echo $row->doc_email;?></td>
+                                                <td><?php echo $row->doc_dept;?></td>
                                                 <td>
                                                     <a href="qc_admin_view_single_employee.php?doc_id=<?php echo $row->doc_id;?>&&doc_number=<?php echo $row->doc_number;?>" class="btn btn-xs btn-primary"><i class="mdi mdi-eye"></i> Ver</a>
                                                 </td>
@@ -161,38 +151,33 @@
                                     </table>
                                 </div>
                             </div>
-                        </div> <!-- end col -->
+                        </div> <!-- Fim da coluna -->
                     </div>
-                    <!-- end row -->
+                    <!-- Fim da secção de médicos recentemente empregados -->
 
-                </div> <!-- container -->
+                </div> <!-- Fim do container -->
+            </div> <!-- Fim do conteúdo -->
 
-            </div> <!-- content -->
-
-            <!-- Footer Start -->
+            <!-- Início do rodapé -->
             <?php include('assets/inc/footer.php');?>
-            <!-- end Footer -->
+            <!-- Fim do rodapé -->
 
         </div>
-
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
-
+        <!-- Fim do conteúdo da página -->
 
     </div>
-    <!-- END wrapper -->
+    <!-- Fim do wrapper -->
 
-    <!-- Right Sidebar -->
+    <!-- Barra direita -->
     <div class="right-bar">
         <div class="rightbar-title">
             <a href="javascript:void(0);" class="right-bar-toggle float-right">
                 <i class="dripicons-cross noti-icon"></i>
             </a>
-            <h5 class="m-0 text-white">Settings</h5>
+            <h5 class="m-0 text-white">Configurações</h5>
         </div>
         <div class="slimscroll-menu">
-            <!-- User box -->
+            <!-- Caixa de usuário -->
             <div class="user-box">
                 <div class="user-img">
                     <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
@@ -203,47 +188,47 @@
                 <p class="text-muted mb-0"><small>Admin Head</small></p>
             </div>
 
-            <!-- Settings -->
+            <!-- Configurações -->
             <hr class="mt-0" />
-            <h5 class="pl-3">Basic Settings</h5>
+            <h5 class="pl-3">Configurações Básicas</h5>
             <hr class="mb-0" />
 
             <div class="p-3">
                 <div class="checkbox checkbox-primary mb-2">
                     <input id="Rcheckbox1" type="checkbox" checked>
                     <label for="Rcheckbox1">
-                        Notifications
+                        Notificações
                     </label>
                 </div>
                 <div class="checkbox checkbox-primary mb-2">
                     <input id="Rcheckbox2" type="checkbox" checked>
                     <label for="Rcheckbox2">
-                        API Access
+                        Acesso à API
                     </label>
                 </div>
                 <div class="checkbox checkbox-primary mb-2">
                     <input id="Rcheckbox3" type="checkbox">
                     <label for="Rcheckbox3">
-                        Auto Updates
+                        Atualizações Automáticas
                     </label>
                 </div>
                 <div class="checkbox checkbox-primary mb-2">
                     <input id="Rcheckbox4" type="checkbox" checked>
                     <label for="Rcheckbox4">
-                        Online Status
+                        Status Online
                     </label>
                 </div>
                 <div class="checkbox checkbox-primary mb-0">
                     <input id="Rcheckbox5" type="checkbox" checked>
                     <label for="Rcheckbox5">
-                        Auto Payout
+                        Pagamento Automático
                     </label>
                 </div>
             </div>
 
-            <!-- Timeline -->
+            <!-- Linha do tempo -->
             <hr class="mt-0" />
-            <h5 class="px-3">Messages <span class="float-right badge badge-pill badge-danger">25</span></h5>
+            <h5 class="px-3">Mensagens <span class="float-right badge badge-pill badge-danger">25</span></h5>
             <hr class="mb-0" />
             <div class="p-3">
                 <div class="inbox-widget">
@@ -262,7 +247,6 @@
                         <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Kurafire</a></p>
                         <p class="inbox-item-text">Nice to meet you</p>
                     </div>
-
                     <div class="inbox-item">
                         <div class="inbox-item-img"><img src="assets/images/users/user-5.jpg" class="rounded-circle" alt=""></div>
                         <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Shahedk</a></p>
@@ -273,20 +257,19 @@
                         <p class="inbox-item-author"><a href="javascript: void(0);" class="text-dark">Adhamdannaway</a></p>
                         <p class="inbox-item-text">This theme is awesome!</p>
                     </div>
-                </div> <!-- end inbox-widget -->
-            </div> <!-- end .p-3-->
-
-        </div> <!-- end slimscroll-menu-->
+                </div> <!-- Fim do inbox-widget -->
+            </div> <!-- Fim do .p-3 -->
+        </div> <!-- Fim do slimscroll-menu -->
     </div>
-    <!-- /Right-bar -->
+    <!-- Fim da barra direita -->
 
-    <!-- Right bar overlay-->
+    <!-- Overlay da barra direita -->
     <div class="rightbar-overlay"></div>
 
-    <!-- Vendor js -->
+    <!-- Ficheiros JavaScript -->
     <script src="assets/js/vendor.min.js"></script>
 
-    <!-- Plugins js-->
+    <!-- Plugins JS -->
     <script src="assets/libs/flatpickr/flatpickr.min.js"></script>
     <script src="assets/libs/jquery-knob/jquery.knob.min.js"></script>
     <script src="assets/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
@@ -296,10 +279,10 @@
     <script src="assets/libs/flot-charts/jquery.flot.selection.js"></script>
     <script src="assets/libs/flot-charts/jquery.flot.crosshair.js"></script>
 
-    <!-- Dashboar 1 init js-->
+    <!-- Inicialização do dashboard 1 JS -->
     <script src="assets/js/pages/dashboard-1.init.js"></script>
 
-    <!-- App js-->
+    <!-- App JS -->
     <script src="assets/js/app.min.js"></script>
 
 </body>

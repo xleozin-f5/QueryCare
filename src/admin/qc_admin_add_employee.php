@@ -1,65 +1,56 @@
 <?php
-	session_start();
-	include('assets/inc/config.php');
-		if(isset($_POST['add_doc']))
-		{
-			$doc_fname=$_POST['doc_fname'];
-			$doc_lname=$_POST['doc_lname'];
-			$doc_number=$_POST['doc_number'];
-            $doc_email=$_POST['doc_email'];
-            $doc_pwd=sha1(md5($_POST['doc_pwd']));
-            
-            //sql to insert captured values
-			$query="INSERT INTO his_docs (doc_fname, doc_lname, doc_number, doc_email, doc_pwd) values(?,?,?,?,?)";
-			$stmt = $mysqli->prepare($query);
-			$rc=$stmt->bind_param('sssss', $doc_fname, $doc_lname, $doc_number, $doc_email, $doc_pwd);
-			$stmt->execute();
-			/*
-			*Use Sweet Alerts Instead Of This Fucked Up Javascript Alerts
-			*echo"<script>alert('Successfully Created Account Proceed To Log In ');</script>";
-			*/ 
-			//declare a varible which will be passed to alert function
-			if($stmt)
-			{
-				$success = "Employee Details Added";
-			}
-			else {
-				$err = "Please Try Again Or Try Later";
-			}
-			
-			
-		}
+    // Iniciar a sessão
+    session_start();
+    // Incluir o ficheiro de configuração
+    include('assets/inc/config.php');
+
+    // Adicionar um novo médico
+    if(isset($_POST['add_doc'])) {
+        $doc_fname = $_POST['doc_fname'];
+        $doc_lname = $_POST['doc_lname'];
+        $doc_number = $_POST['doc_number'];
+        $doc_email = $_POST['doc_email'];
+        $doc_pwd = sha1(md5($_POST['doc_pwd'])); // Dupla encriptação da palavra-passe
+
+        // SQL para inserir os valores capturados
+        $query = "INSERT INTO his_docs (doc_fname, doc_lname, doc_number, doc_email, doc_pwd) VALUES (?,?,?,?,?)";
+        $stmt = $mysqli->prepare($query);
+        $rc = $stmt->bind_param('sssss', $doc_fname, $doc_lname, $doc_number, $doc_email, $doc_pwd);
+        $stmt->execute();
+
+        // Verificar se a inserção foi bem-sucedida
+        if($stmt) {
+            $success = "Detalhes do Médico Adicionados";
+        } else {
+            $err = "Por favor, tente novamente mais tarde";
+        }
+    }
 ?>
-<!--End Server Side-->
-<!--End Patient Registration-->
 <!DOCTYPE html>
 <html lang="en">
-
-<!--Head-->
+<!-- Cabeçalho -->
 <?php include('assets/inc/head.php');?>
 
 <body>
-    <!-- Begin page -->
+    <!-- Início da página -->
     <div id="wrapper">
 
-        <!-- Topbar Start -->
+        <!-- Início da barra superior -->
         <?php include("assets/inc/nav.php");?>
-        <!-- end Topbar -->
+        <!-- Fim da barra superior -->
 
-        <!-- ========== Left Sidebar Start ========== -->
+        <!-- Início da barra lateral esquerda -->
         <?php include("assets/inc/sidebar.php");?>
-        <!-- Left Sidebar End -->
+        <!-- Fim da barra lateral esquerda -->
 
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
+        <!-- Início do conteúdo da página -->
         <div class="content-page">
             <div class="content">
 
-                <!-- Start Content-->
+                <!-- Início do conteúdo -->
                 <div class="container-fluid">
 
-                    <!-- start page title -->
+                    <!-- Início do título da página -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
@@ -74,14 +65,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end page title -->
-                    <!-- Form row -->
+                    <!-- Fim do título da página -->
+
+                    <!-- Formulário para adicionar médico -->
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Preencher todos os campos</h4>
-                                    <!--Add Patient Form-->
                                     <form method="post">
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
@@ -95,10 +86,10 @@
                                         </div>
                                         <div class="form-group col-md-2" style="display:none">
                                             <?php 
-                                                        $length = 5;    
-                                                        $patient_number =  substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'),1,$length);
-                                                    ?>
-                                            <label for="inputZip" class="col-form-label">Cedula</label>
+                                                $length = 5;    
+                                                $patient_number =  substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'),1,$length);
+                                            ?>
+                                            <label for="inputZip" class="col-form-label">Cédula</label>
                                             <input type="text" name="doc_number" value="<?php echo $patient_number;?>" class="form-control" id="inputZip">
                                         </div>
 
@@ -112,49 +103,39 @@
                                                 <label for="inputCity" class="col-form-label">Password</label>
                                                 <input required="required" type="password" name="doc_pwd" class="form-control" id="inputCity">
                                             </div>
-
                                         </div>
 
                                         <button type="submit" name="add_doc" class="ladda-button btn btn-success" data-style="expand-right">Adicionar Médico</button>
                                     </form>
-                                    <!--End Patient Form-->
-                                </div> <!-- end card-body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col -->
+                                </div> <!-- fim do card-body -->
+                            </div> <!-- fim do card-->
+                        </div> <!-- fim da coluna -->
                     </div>
-                    <!-- end row -->
+                    <!-- fim do formulário para adicionar médico -->
 
-                </div> <!-- container -->
-
-            </div> <!-- content -->
-            <!-- Footer Start -->
+                </div> <!-- fim do container -->
+            </div> <!-- fim do conteúdo -->
+            <!-- Início do rodapé -->
             <?php include('assets/inc/footer.php');?>
-            <!-- end Footer -->
-
+            <!-- Fim do rodapé -->
         </div>
-
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
-
+        <!-- Fim do conteúdo da página -->
 
     </div>
-    <!-- END wrapper -->
+    <!-- Fim do wrapper -->
 
-    <!-- Right bar overlay-->
+    <!-- Overlay da barra direita -->
     <div class="rightbar-overlay"></div>
 
-    <!-- Vendor js -->
+    <!-- Ficheiros JavaScript -->
     <script src="assets/js/vendor.min.js"></script>
-
-    <!-- App js-->
     <script src="assets/js/app.min.js"></script>
 
-    <!-- Loading buttons js -->
+    <!-- JavaScript para botões de carregamento -->
     <script src="assets/libs/ladda/spin.js"></script>
     <script src="assets/libs/ladda/ladda.js"></script>
 
-    <!-- Buttons init js-->
+    <!-- Inicialização dos botões -->
     <script src="assets/js/pages/loading-btn.init.js"></script>
 
 </body>

@@ -1,63 +1,60 @@
 <?php
-	session_start();
-	include('assets/inc/config.php');
-		if(isset($_POST['update_doc']))
+	session_start(); // Inicia a sessão
+	include('assets/inc/config.php'); // Inclui o ficheiro de configuração
+
+	if(isset($_POST['update_doc'])) // Verifica se o formulário foi submetido
+	{
+        $email=$_GET['email']; // Obtém o email do URL
+        $pwd=sha1(md5($_GET['pwd'])); // Obtém e encripta a nova palavra-passe do URL
+        $status = $_POST['status']; // Obtém o estado de reset do formulário
+
+        // SQL para atualizar os valores capturados
+        $query="UPDATE his_docs SET doc_pwd =? WHERE doc_email = ?";
+        $query1 = "UPDATE his_pwdresets SET status =? WHERE email = ?";
+        $stmt = $mysqli->prepare($query);
+        $stmt1 = $mysqli->prepare($query1);
+        $rc=$stmt->bind_param('ss', $pwd, $email);
+        $rs=$stmt1->bind_param('ss', $status, $email);
+        $stmt->execute();
+        $stmt1->execute();
+		
+		if($stmt && $stmt1) // Verifica se as queries foram executadas com sucesso
 		{
-            $email=$_GET['email'];
-            $pwd=sha1(md5($_GET['pwd']));
-            $status = $_POST['status'];
-                        
-            //sql to insert captured values
-            $query="UPDATE his_docs SET doc_pwd =? WHERE doc_email = ?";
-            $query1 = "UPDATE his_pwdresets SET status =? WHERE email = ?";
-            $stmt = $mysqli->prepare($query);
-            $stmt1 = $mysqli->prepare($query1);
-            $rc=$stmt->bind_param('ss', $pwd, $email);
-            $rs=$stmt1->bind_param('ss', $status, $email);
-            $stmt->execute();
-            $stmt1->execute();
-			
-			if($stmt && $stmt1)
-			{
-				$success = "Password Updated";
-			}
-            else
-            {
-				$err = "Please Try Again Or Try Later";
-            }
-            			
+			$success = "Password Updated"; // Define a mensagem de sucesso
 		}
+        else
+        {
+			$err = "Please Try Again Or Try Later"; // Define a mensagem de erro
+        }
+	}
 ?>
-<!--End Server Side-->
+<!-- Fim do lado do servidor -->
 <!DOCTYPE html>
 <html lang="en">
     
-    <!--Head-->
+    <!--Cabeçalho-->
     <?php include('assets/inc/head.php');?>
     <body>
 
-        <!-- Begin page -->
+        <!-- Início da página -->
         <div id="wrapper">
 
-            <!-- Topbar Start -->
+            <!-- Barra superior -->
             <?php include("assets/inc/nav.php");?>
-            <!-- end Topbar -->
+            <!-- Fim da barra superior -->
 
-            <!-- ========== Left Sidebar Start ========== -->
+            <!-- Barra lateral -->
             <?php include("assets/inc/sidebar.php");?>
-            <!-- Left Sidebar End -->
+            <!-- Fim da barra lateral -->
 
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
+            <!-- Conteúdo da página -->
             <div class="content-page">
                 <div class="content">
 
-                    <!-- Start Content-->
+                    <!-- Conteúdo -->
                     <div class="container-fluid">
                         
-                        <!-- start page title -->
+                        <!-- Título da página -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
@@ -68,29 +65,28 @@
                                             <li class="breadcrumb-item active">Manage </li>
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Update Employee Password Details</h4>
+                                    <h4 class="page-title">Atualizar Detalhes da Palavra-passe do Funcionário</h4>
                                 </div>
                             </div>
                         </div>     
-                        <!-- end page title --> 
-                        <!-- Form row -->
+                        <!-- Fim do título da página --> 
+                        <!-- Formulário -->
                         <?php
-                            $email=$_GET['email'];
+                            $email=$_GET['email']; // Obtém o email do URL
                             $ret="SELECT  * FROM his_pwdresets WHERE email=?";
                             $stmt= $mysqli->prepare($ret) ;
                             $stmt->bind_param('i',$email);
                             $stmt->execute() ;//ok
                             $res=$stmt->get_result();
-                            //$cnt=1;
-                            while($row=$res->fetch_object())
+                            while($row=$res->fetch_object()) // Loop para obter os dados do funcionário
                             {
                         ?>
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Fill all fields</h4>
-                                        <!--Add Patient Form-->
+                                        <h4 class="header-title">Preencha todos os campos</h4>
+                                        <!-- Formulário de atualização de palavra-passe -->
                                         <form method="post" enctype="multipart/form-data">
                                             
                                             <div class="form-row">
@@ -109,10 +105,10 @@
                                                 
                                             </div>                                            
 
-                                            <button type="submit" name="update_doc" class="ladda-button btn btn-success" data-style="expand-right">Update Password</button>
+                                            <button type="submit" name="update_doc" class="ladda-button btn btn-success" data-style="expand-right">Atualizar Palavra-passe</button>
 
                                         </form>
-                                        <!--End Patient Form-->
+                                        <!-- Fim do formulário de atualização -->
                                     </div> <!-- end card-body -->
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
@@ -124,22 +120,17 @@
 
                 </div> <!-- content -->
 
-                <!-- Footer Start -->
+                <!-- Rodapé -->
                 <?php include('assets/inc/footer.php');?>
-                <!-- end Footer -->
+                <!-- Fim do rodapé -->
 
             </div>
 
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
-
-
         </div>
-        <!-- END wrapper -->
+        <!-- FIM wrapper -->
 
        
-        <!-- Right bar overlay-->
+        <!-- Overlay da barra lateral direita-->
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
@@ -152,7 +143,7 @@
         <script src="assets/libs/ladda/spin.js"></script>
         <script src="assets/libs/ladda/ladda.js"></script>
 
-        <!-- Buttons init js-->
+        <!-- Inicialização dos botões -->
         <script src="assets/js/pages/loading-btn.init.js"></script>
         
     </body>

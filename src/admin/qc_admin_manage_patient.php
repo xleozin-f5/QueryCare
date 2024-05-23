@@ -1,12 +1,20 @@
 <?php
+  // Inicia a sessão
   session_start();
+  // Inclui arquivos de configuração e de verificação de login
   include('assets/inc/config.php');
   include('assets/inc/checklogin.php');
+  // Verifica se o usuário está logado
   check_login();
+  // Obtém o ID do administrador da sessão
   $aid=$_SESSION['ad_id'];
+  
+  // Verifica se o parâmetro 'delete' foi enviado por GET
   if(isset($_GET['delete']))
   {
+        // Obtém o ID do paciente a ser excluído
         $id=intval($_GET['delete']);
+        // Prepara a consulta para excluir o paciente pelo ID
         $adn="delete from his_patients where pat_id=?";
         $stmt= $mysqli->prepare($adn);
         $stmt->bind_param('i',$id);
@@ -15,44 +23,43 @@
   
           if($stmt)
           {
-            $success = "Patients Records Deleted";
+            // Mensagem de sucesso ao excluir os registros do paciente
+            $success = "Registos dos Pacientes Eliminados";
           }
             else
             {
-                $err = "Try Again Later";
+                // Mensagem de erro ao excluir os registros do paciente
+                $err = "Tente Novamente Mais Tarde";
             }
     }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     
 <?php include('assets/inc/head.php');?>
 
     <body>
 
-        <!-- Begin page -->
+        <!-- Início da página -->
         <div id="wrapper">
 
-            <!-- Topbar Start -->
+            <!-- Topbar -->
                 <?php include('assets/inc/nav.php');?>
-            <!-- end Topbar -->
+            <!-- Fim do Topbar -->
 
-            <!-- ========== Left Sidebar Start ========== -->
+            <!-- Barra Lateral Esquerda -->
                 <?php include("assets/inc/sidebar.php");?>
-            <!-- Left Sidebar End -->
+            <!-- Fim da Barra Lateral Esquerda -->
 
-            <!-- ============================================================== -->
-            <!-- Start Page Content here -->
-            <!-- ============================================================== -->
-
+            <!-- Conteúdo da Página -->
             <div class="content-page">
                 <div class="content">
 
-                    <!-- Start Content-->
+                    <!-- Conteúdo Inicial -->
                     <div class="container-fluid">
                         
-                        <!-- start page title -->
+                        <!-- Título da Página -->
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box">
@@ -67,7 +74,7 @@
                                 </div>
                             </div>
                         </div>     
-                        <!-- end page title --> 
+                        <!-- Fim do Título da Página --> 
 
                         <div class="row">
                             <div class="col-12">
@@ -78,14 +85,14 @@
                                             <div class="col-12 text-sm-center form-inline" >
                                                 <div class="form-group mr-2" style="display:none">
                                                     <select id="demo-foo-filter-status" class="custom-select custom-select-sm">
-                                                        <option value="">Show all</option>
-                                                        <option value="Discharged">Discharged</option>
-                                                        <option value="OutPatients">OutPatients</option>
-                                                        <option value="InPatients">InPatients</option>
+                                                        <option value="">Mostrar tudo</option>
+                                                        <option value="Alta">Alta</option>
+                                                        <option value="Consulta Externa">Consulta Externa</option>
+                                                        <option value="Internamento">Internamento</option>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input id="demo-foo-search" type="text" placeholder="Search" class="form-control form-control-sm" autocomplete="on">
+                                                    <input id="demo-foo-search" type="text" placeholder="Pesquisar" class="form-control form-control-sm" autocomplete="on">
                                                 </div>
                                             </div>
                                         </div>
@@ -97,17 +104,16 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th data-toggle="true">Pacientes</th>
-                                                <th data-hide="phone">Numero</th>
+                                                <th data-hide="phone">Número</th>
                                                 <th data-hide="phone">Morada</th>
                                             </tr>
                                             </thead>
                                             <?php
                                             /*
-                                                *get details of allpatients
-                                                *
+                                                Obtém detalhes de todos os pacientes
                                             */
                                                 $ret="SELECT * FROM  his_patients ORDER BY RAND() "; 
-                                                //sql code to get to ten docs  randomly
+                                                // Consulta SQL para obter até dez pacientes aleatoriamente
                                                 $stmt= $mysqli->prepare($ret) ;
                                                 $stmt->execute() ;//ok
                                                 $res=$stmt->get_result();
@@ -125,6 +131,7 @@
                                                     <td><?php echo $row->pat_type;?></td>
                                                     
                                                     <td>
+                                                        <!-- Botões de ação -->
                                                         <a href="qc_admin_manage_patient.php?delete=<?php echo $row->pat_id;?>" class="badge badge-danger"><i class=" mdi mdi-trash-can-outline "></i> Apagar</a>
                                                         <a href="qc_admin_view_single_patient.php?pat_id=<?php echo $row->pat_id;?>&&pat_number=<?php echo $row->pat_number;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> Ver</a>
                                                         <a href="qc_admin_update_single_patient.php?pat_id=<?php echo $row->pat_id;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Atualizar</a>
@@ -136,6 +143,7 @@
                                             <tr class="active">
                                                 <td colspan="8">
                                                     <div class="text-right">
+                                                        <!-- Paginação -->
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"></ul>
                                                     </div>
                                                 </td>
@@ -152,22 +160,19 @@
 
                 </div> <!-- content -->
 
-                <!-- Footer Start -->
+                <!-- Footer -->
                  <?php include('assets/inc/footer.php');?>
                 <!-- end Footer -->
 
             </div>
 
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
-
+            <!-- Fim do Conteúdo da Página -->
 
         </div>
-        <!-- END wrapper -->
+        <!-- Fim do wrapper -->
 
 
-        <!-- Right bar overlay-->
+        <!-- Overlay da Barra Lateral Direita -->
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor js -->
@@ -181,7 +186,8 @@
 
         <!-- App js -->
         <script src="assets/js/app.min.js"></script>
-        
-    </body>
+
+</body>
 
 </html>
+                                     

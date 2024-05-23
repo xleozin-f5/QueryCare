@@ -1,12 +1,20 @@
 <?php
+  // Inicia a sessão
   session_start();
+  // Inclui arquivos de configuração e de verificação de login
   include('assets/inc/config.php');
   include('assets/inc/checklogin.php');
+  // Verifica se o usuário está logado
   check_login();
+  // Obtém o ID do administrador da sessão
   $aid=$_SESSION['ad_id'];
+  
+  // Verifica se o parâmetro 'delete' foi enviado por GET
   if(isset($_GET['delete']))
   {
+        // Obtém o ID do médico a ser excluído
         $id=intval($_GET['delete']);
+        // Prepara a consulta para excluir o médico pelo ID
         $adn="delete from his_docs where doc_id=?";
         $stmt= $mysqli->prepare($adn);
         $stmt->bind_param('i',$id);
@@ -15,10 +23,12 @@
   
           if($stmt)
           {
+            // Mensagem de sucesso ao excluir o médico
             $success = "Employee Fired";
           }
             else
             {
+                // Mensagem de erro ao excluir o médico
                 $err = "Try Again Later";
             }
     }
@@ -31,28 +41,25 @@
 
 <body>
 
-    <!-- Begin page -->
+    <!-- Início da página -->
     <div id="wrapper">
 
-        <!-- Topbar Start -->
+        <!-- Topbar -->
         <?php include('assets/inc/nav.php');?>
-        <!-- end Topbar -->
+        <!-- Fim do Topbar -->
 
-        <!-- ========== Left Sidebar Start ========== -->
+        <!-- Barra Lateral Esquerda -->
         <?php include("assets/inc/sidebar.php");?>
-        <!-- Left Sidebar End -->
+        <!-- Fim da Barra Lateral Esquerda -->
 
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-
+        <!-- Conteúdo da Página -->
         <div class="content-page">
             <div class="content">
 
-                <!-- Start Content-->
+                <!-- Conteúdo Inicial -->
                 <div class="container-fluid">
 
-                    <!-- start page title -->
+                    <!-- Título da Página -->
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
@@ -67,8 +74,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end page title -->
+                    <!-- Fim do Título da Página -->
 
+                    <!-- Tabela de Médicos -->
                     <div class="row">
                         <div class="col-12">
                             <div class="card-box">
@@ -105,11 +113,10 @@
                                         </thead>
                                         <?php
                                             /*
-                                                *get details of allpatients
-                                                *
+                                                Obtém detalhes de todos os médicos
                                             */
                                                 $ret="SELECT * FROM  his_docs ORDER BY RAND() "; 
-                                                //sql code to get to ten docs  randomly
+                                                // Consulta SQL para obter até dez médicos aleatoriamente
                                                 $stmt= $mysqli->prepare($ret) ;
                                                 $stmt->execute() ;//ok
                                                 $res=$stmt->get_result();
@@ -127,6 +134,7 @@
                                                 <td><?php echo $row->doc_email;?></td>
 
                                                 <td>
+                                                    <!-- Botões de ação -->
                                                     <a href="qc_admin_manage_employee.php?delete=<?php echo $row->doc_id;?>" class="badge badge-danger"><i class=" mdi mdi-trash-can-outline "></i> Apagar</a>
                                                     <a href="qc_admin_view_single_employee.php?doc_id=<?php echo $row->doc_id;?>&&doc_number=<?php echo $row->doc_number;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> Ver</a>
                                                     <a href="qc_admin_update_single_employee.php?doc_number=<?php echo $row->doc_number;?>" class="badge badge-primary"><i class="mdi mdi-check-box-outline "></i> Atualizar</a>
@@ -138,6 +146,7 @@
                                             <tr class="active">
                                                 <td colspan="8">
                                                     <div class="text-right">
+                                                        <!-- Paginação -->
                                                         <ul class="pagination pagination-rounded justify-content-end footable-pagination m-t-10 mb-0"></ul>
                                                     </div>
                                                 </td>
@@ -148,42 +157,29 @@
                             </div> <!-- end card-box -->
                         </div> <!-- end col -->
                     </div>
-                    <!-- end row -->
+                    <!-- Fim da Tabela de Médicos -->
 
                 </div> <!-- container -->
 
             </div> <!-- content -->
 
-            <!-- Footer Start -->
+            <!-- Footer -->
             <?php include('assets/inc/footer.php');?>
-            <!-- end Footer -->
+            <!-- Fim do Footer -->
 
         </div>
 
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
-
+        <!-- Fim do Conteúdo da Página -->
 
     </div>
-    <!-- END wrapper -->
+    <!-- Fim do wrapper -->
 
 
-    <!-- Right bar overlay-->
+    <!-- Overlay da Barra Lateral Direita -->
     <div class="rightbar-overlay"></div>
 
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
 
     <!-- Footable js -->
-    <script src="assets/libs/footable/footable.all.min.js"></script>
-
-    <!-- Init js -->
-    <script src="assets/js/pages/foo-tables.init.js"></script>
-
-    <!-- App js -->
-    <script src="assets/js/app.min.js"></script>
-
-</body>
-
-</html>
+    <script src="assets/libs/footable/footable.all.min.js
