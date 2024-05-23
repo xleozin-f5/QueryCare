@@ -53,7 +53,7 @@
                     <!-- Links para retornar à página de login ou à página inicial -->
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">Back to <a href="index.php" class="text-white ml-1"><b>Log In</b></a> OR <a href="../../index.php" class="text-white ml-1"><b>HomePage</b></a></p>
+                            <p class="text-white-50">Back to <a href="index.html" class="text-white ml-1"><b>Log In</b></a> OR <a href="./index.php" class="text-white ml-1"><b>HomePage</b></a></p>
                         </div> <!-- end col -->
                     </div> <!-- end row -->
                 </div> <!-- end col -->
