@@ -23,7 +23,7 @@
         else
             {
             #echo "<script>alert('Access Denied Please Check Your Credentials');</script>";
-                $err = "Access Denied Please Check Your Credentials";
+                $err = "Acesso Negado Verifica as tuas Credenciais ";
             }
     }
 ?>
