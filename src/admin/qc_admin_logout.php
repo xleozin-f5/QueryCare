@@ -44,8 +44,8 @@
                                     </div>
                                 </div>
                                 <!-- Mensagem de despedida -->
-                                <h3>See you again !</h3>
-                                <p class="text-muted font-13"> You are now successfully sign out. </p>
+                                <h3>Vejo-te novamente!</h3>
+                                <p class="text-muted font-13"> Você foi desconectado com sucesso. </p>
                             </div>
                             <!-- Autor -->
                         </div> <!-- end card-body -->
@@ -53,7 +53,7 @@
                     <!-- Links para retornar à página de login ou à página inicial -->
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">Back to <a href="index.html" class="text-white ml-1"><b>Log In</b></a> OR <a href="./index.php" class="text-white ml-1"><b>HomePage</b></a></p>
+                        <p class="text-white-50">Voltar a<a href="index.php" class="text-white ml-1"><b>Iniciar Sessão</b></a> OU<a href="../../public/login.html" class="text-white ml-1"><b>Página Inicial</b></a></p>
                         </div> <!-- end col -->
                     </div> <!-- end row -->
                 </div> <!-- end col -->
