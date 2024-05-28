@@ -53,7 +53,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">Voltar a<a href="index.php" class="text-white ml-1"><b>Iniciar Sessão</b></a> OU<a href="../../index.php" class="text-white ml-1"><b>Página Inicial</b></a></p>
+                            <p class="text-white-50">Voltar a<a href="index.php" class="text-white ml-1"><b>Iniciar Sessão</b></a> OU<a href="../../public/login.html" class="text-white ml-1"><b>Página Inicial</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->
