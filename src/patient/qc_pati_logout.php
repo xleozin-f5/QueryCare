@@ -15,6 +15,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="authentication-bg authentication-bg-pattern">
@@ -53,7 +54,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-white-50">Voltar a<a href="index.php" class="text-white ml-1"><b>Iniciar Sessão</b></a> OU<a href="../../public/login.html" class="text-white ml-1"><b>Página Inicial</b></a></p>
+                        <p class="text-black">Voltar a<a href="index.php" class="text-bold ml-1"><b>Iniciar Sessão</b></a> OU<a href="../../public/login.html" class="text-bold ml-1"><b>Página Inicial</b></a></p>
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->

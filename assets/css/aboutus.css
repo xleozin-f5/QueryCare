@@ -1,18 +1,23 @@
-/* Estilos para o conteúdo da página */
-.container {
-  max-width: 800px; /* Largura máxima do conteúdo */
-  margin-top: 80px; /* Margem superior para compensar a altura da barra de navegação */
-}
-
-h1 {
-  color: #333; /* Cor do título principal */
-}
-
-p {
-  color: #666; /* Cor do texto normal */
-}
-
 .navbar {
-  padding-top: 0.5rem; /* Ajuste para a altura da barra de navegação */
-  padding-bottom: 0.5rem; /* Ajuste para a altura da barra de navegação */
-}
+    margin-bottom: 20px; /* Adiciona margem inferior ao cabeçalho */
+  }
+  
+  .navbar-brand {
+    margin-left: 75px; /* Adiciona margem à ESQ da logo */
+    margin-top: 15px;
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important; /* Use !important para garantir que a cor seja aplicada */
+    font-size: 19px; /* Ajusta o tamanho da fonte */
+  }
+  
+  .navbar-nav {
+    margin-right: 120px; /* Adiciona margem à DIR do texto do menu */
+  }
+  
+  .logo-img {
+    max-width: 100px;
+    height: auto;
+  }

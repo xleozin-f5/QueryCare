@@ -1,5 +1,30 @@
 /* custom.css */
 
+.navbar {
+    margin-bottom: 20px; /* Adiciona margem inferior ao cabeçalho */
+  }
+  
+  .navbar-brand {
+    margin-left: 75px; /* Adiciona margem à ESQ da logo */
+    margin-top: 15px;
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important; /* Use !important para garantir que a cor seja aplicada */
+    font-size: 19px; /* Ajusta o tamanho da fonte */
+  }
+  
+  .navbar-nav {
+    margin-right: 120px; /* Adiciona margem à DIR do texto do menu */
+  }
+  
+  .logo-img {
+    max-width: 100px;
+    height: auto;
+  }
+
+  
 .card {
     border: 1px solid #e2e2e2;
     border-radius: 10px;

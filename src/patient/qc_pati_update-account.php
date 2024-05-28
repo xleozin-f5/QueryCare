@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 session_start();
 include('assets/inc/config.php');
 
@@ -7,12 +10,12 @@ if (isset($_POST['update_profile'])) {
     $pat_fname = $_POST['pat_fname'];
     $pat_lname = $_POST['pat_lname'];
     $pat_id = $_SESSION['pat_id'];
-    $pat_email = $_POST['pat_email'];
+    $pat_phone = $_POST['pat_phone'];
 
     // Use prepared statements with parameterized queries
-    $query = "UPDATE his_pats SET pat_fname=?, pat_lname=?, pat_email=? WHERE pat_id =?";
+    $query = "UPDATE his_patients SET pat_fname=?, pat_lname=?, pat_phone=? WHERE pat_id =?";
     $stmt = $mysqli->prepare($query);
-    $stmt->bind_param('sssi', $pat_fname, $pat_lname, $pat_email, $pat_id);
+    $stmt->bind_param('sssi', $pat_fname, $pat_lname, $pat_phone, $pat_id);
     $stmt->execute();
 
     // Check for errors
@@ -29,7 +32,7 @@ if (isset($_POST['update_pwd'])) {
     $pat_pwd = password_hash($_POST['pat_pwd'], PASSWORD_BCRYPT); // Use a secure hashing algorithm
 
     // Use prepared statements with parameterized queries
-    $query = "UPDATE his_pats SET pat_pwd =? WHERE pat_id =?";
+    $query = "UPDATE his_patients SET pat_pwd =? WHERE pat_id =?";
     $stmt = $mysqli->prepare($query);
     $stmt->bind_param('si', $pat_pwd, $pat_id);
     $stmt->execute();
@@ -63,7 +66,7 @@ if (isset($_POST['update_pwd'])) {
         <!-- ============================================================== -->
         <?php
             $pat_id=$_SESSION['pat_id'];
-            $ret="SELECT * FROM his_pats WHERE pat_id=?";
+            $ret="SELECT * FROM his_patients WHERE pat_id=?";
             $stmt= $mysqli->prepare($ret);
             $stmt->bind_param('i',$pat_id);
             $stmt->execute();
@@ -98,7 +101,7 @@ if (isset($_POST['update_pwd'])) {
                                 <div class="text-center mt-3">
                                     <p class="text-muted mb-2 font-13"><strong>Nome Completo :</strong> <span class="ml-2"><?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?></span></p>
                                     <p class="text-muted mb-2 font-13"><strong>Número de Paciente :</strong> <span class="ml-2"><?php echo $row->pat_number;?></span></p>
-                                    <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ml-2"><?php echo $row->pat_email;?></span></p>
+                                    <p class="text-muted mb-2 font-13"><strong>Telefone :</strong> <span class="ml-2"><?php echo $row->pat_phone;?></span></p>
                                 </div>
                             </div> <!-- end card-box -->
                         </div> <!-- end col-->
@@ -137,8 +140,8 @@ if (isset($_POST['update_pwd'])) {
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="useremail">Email</label>
-                                                        <input type="email" name="pat_email" class="form-control" id="useremail" placeholder="<?php echo $row->pat_email;?>">
+                                                        <label for="useremail">Telefone</label>
+                                                        <input type="text" name="pat_phone" class="form-control" id="useremail" placeholder="<?php echo $row->pat_phone;?>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

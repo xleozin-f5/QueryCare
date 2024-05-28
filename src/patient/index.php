@@ -34,8 +34,7 @@ if(isset($_POST['patient_login'])) {
     <meta charset="utf-8" />
     <title>QueryCare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../assets/img/logo.png" />
 
     <!-- CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -43,7 +42,25 @@ if(isset($_POST['patient_login'])) {
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" /> <!-- Adicionando arquivo CSS personalizado -->
 </head>
-<body class="authentication-bg authentication-bg-pattern">
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="navbar-brand" href="../index.html"><img src="../../assets/img/querycareblack.png" alt="Logo" style="max-width: 100px;"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="../../public/aboutus.html">Sobre Nós</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../../public/login.html">Login</a>
+            </li>
+        </ul>
+    </div>
+  </nav>
+<body 
+class="authentication-bg authentication-bg-pattern">
     <div class="account-pages mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">

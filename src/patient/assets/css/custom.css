@@ -1,0 +1,89 @@
+
+
+/* Card customization */
+.card.bg-pattern {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centering the content and adding margin */
+.text-center.w-75.m-auto {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Custom logout checkmark animation */
+.logout-checkmark {
+    margin: 20px auto;
+    width: 80px;
+    height: 80px;
+}
+
+.logout-checkmark .path.circle {
+    stroke-dasharray: 360;
+    stroke-dashoffset: 360;
+    animation: dash 2s linear forwards;
+}
+
+.logout-checkmark .path.check {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: dash-check 1s 1s ease forwards;
+}
+
+@keyframes dash {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes dash-check {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Headings and text customization */
+h3 {
+    font-size: 24px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.text-muted.font-13 {
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Links customization */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.text-white {
+    color: #030303;
+}
+
+.text-white.ml-1 {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.text-white.ml-1:hover {
+    text-decoration: underline;
+    color: #111111;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .col-md-8.col-lg-6.col-xl-5 {
+        padding: 15px;
+    }
+
+    .text-center.w-75.m-auto {
+        width: 90%;
+    }
+}
