@@ -1,13 +1,18 @@
+/* Estilos para o conteúdo da página */
+.container {
+  max-width: 800px; /* Largura máxima do conteúdo */
+  margin-top: 80px; /* Margem superior para compensar a altura da barra de navegação */
+}
+
+h1 {
+  color: #333; /* Cor do título principal */
+}
+
+p {
+  color: #666; /* Cor do texto normal */
+}
+
 .navbar {
-    padding-top: 0.5rem; /* Ajuste para a altura da barra de navegação */
-    padding-bottom: 0.5rem; /* Ajuste para a altura da barra de navegação */
-  }
-  
-  /* Estilo para o ícone da engrenagem */
-  .gear-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #666;
-  }
-  
+  padding-top: 0.5rem; /* Ajuste para a altura da barra de navegação */
+  padding-bottom: 0.5rem; /* Ajuste para a altura da barra de navegação */
+}
