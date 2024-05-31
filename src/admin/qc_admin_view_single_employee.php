@@ -71,9 +71,7 @@
 
                                 <div class="text-centre mt-3">
 
-                                    <p class="text-muted mb-2 font-13"><strong>Nome :</strong> <span class="ml-2"><?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?></span></p>
-                                    <p class="text-muted mb-2 font-13"><strong>Departamento :</strong> <span class="ml-2"><?php echo $row->doc_dept;?></span></p>
-                                    <p class="text-muted mb-2 font-13"><strong>Cedula :</strong> <span class="ml-2"><?php echo $row->doc_number;?></span></p>
+                                    <p class="text-muted mb-2 font-13"><strong>Nome :</strong> <span class="ml-2"><?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?></span></p>                                    <p class="text-muted mb-2 font-13"><strong>Cedula :</strong> <span class="ml-2"><?php echo $row->doc_number;?></span></p>
                                     <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ml-2"><?php echo $row->doc_email;?></span></p>
 
 
