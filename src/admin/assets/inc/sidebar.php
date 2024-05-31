@@ -53,6 +53,25 @@
                         </li>
                         <hr>
                     </ul>
+                    <li>
+                    <a href="javascript: void(0);">
+                        <i class="far fa-calendar-alt"></i>
+                        <span> Consultas </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="qc_admin_createcons.php">Agendar Consulta</a>
+                        </li>
+                        <li>
+                            <a href="qc_admin_managecons.php">Gerir Consultas</a>
+                        </li>
+                        <li>
+                            <a href="qc_admin_viewcons.php">Ver Consultas</a>
+                        </li>
+                        <hr>
+                    </ul>
+                </li>
         </div>
         <!-- End Sidebar -->
 
