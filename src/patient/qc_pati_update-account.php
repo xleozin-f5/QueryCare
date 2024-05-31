@@ -189,7 +189,5 @@ if (isset($_POST['update_pwd'])) {
 
 </div>
 <!-- END wrapper -->
-
-<?php include('assets/inc/scripts.php');?>
 </body>
 </html>

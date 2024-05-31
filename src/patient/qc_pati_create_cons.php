@@ -18,7 +18,7 @@ function agendarConsulta($conn, $nome_paciente, $numero_paciente, $data_consulta
 
     // Vincular os parâmetros
     $data_hora_consulta = $data_consulta . ' ' . $hora_consulta . ' ';
-    $stmt->bind_param("ssssi", $nome_paciente, $numero_paciente, $data_hora_consulta, $medico_id, $razao_consulta);
+    $stmt->bind_param("sssss", $nome_paciente, $numero_paciente, $data_hora_consulta, $medico_id, $razao_consulta);
 
     // Executar a declaração SQL
     if (!$stmt->execute()) {

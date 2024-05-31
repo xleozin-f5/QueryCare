@@ -47,8 +47,6 @@ $result = $mysqli->query($sql);
                                                     <th>#</th>
                                                     <th>Nome do Paciente</th>
                                                     <th>Data da Consulta</th>
-                                                    <th>Hora da Consulta</th>
-                                                    <th>Motivo</th>
                                                     <th>Ações</th>
                                                 </tr>
                                             </thead>
@@ -62,8 +60,6 @@ $result = $mysqli->query($sql);
                                                         echo "<td>" . $row["mdr_id"] . "</td>";
                                                         echo "<td>" . $row["mdr_pat_name"] . "</td>";
                                                         echo "<td>" . $row["mdr_date_rec"] . "</td>";
-                                                        echo "<td>" . $row["mdr_time_rec"] . "</td>";
-                                                        echo "<td>" . $row["mdr_reason"] . "</td>";
                                                         // Botão de editar abre o modal de edição
                                                         echo "<td>
                                                                 <button type='button' class='btn btn-info' data-toggle='modal' data-target='#editModal' data-id='" . $row["mdr_id"] . "' data-data='" . $row["mdr_date_rec"] . "' data-hora='" . $row["mdr_time_rec"] . "'>Editar</button>

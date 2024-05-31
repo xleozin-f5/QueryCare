@@ -47,7 +47,6 @@ $result = $mysqli->query($sql);
                                                     <th>#</th>
                                                     <th>Nome do Paciente</th>
                                                     <th>Data da Consulta</th>
-                                                    <th>Hora da Consulta</th>
                                                     <th>Motivo</th>
                                                 </tr>
                                             </thead>
@@ -62,7 +61,6 @@ $result = $mysqli->query($sql);
                                                         echo "<td>" . $row["mdr_id"] . "</td>";
                                                         echo "<td>" . $row["mdr_pat_name"] . "</td>";
                                                         echo "<td>" . $row["mdr_date_rec"] . "</td>";
-                                                        echo "<td>" . $row["mdr_time_rec"] . "</td>";
                                                         echo "<td>" . $row["mdr_reason"] . "</td>";
                                                         echo "</tr>";
                                                     }

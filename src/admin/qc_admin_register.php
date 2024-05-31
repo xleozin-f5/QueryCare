@@ -36,9 +36,6 @@
     <meta charset="utf-8" />
     <title>QueryCare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Um tema de administração completo que pode ser usado para construir CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- Ícone do aplicativo -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
