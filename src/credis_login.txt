@@ -11,5 +11,5 @@ Password: password
 
 **Patient Login Details**
 
-Sns   : 
-Password: 
+Sns   : user
+Password: user123
