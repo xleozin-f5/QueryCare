@@ -48,7 +48,7 @@
                             <a href="#">Agendar Consulta</a>
                         </li>
                         <li>
-                            <a href="#">Gerir Consultas</a>
+                            <a href="qc_doc_manage_cons.php">Gerir Consultas</a>
                         </li>
                         <li>
                             <a href="qc_doc_view_cons.php">Ver Consultas</a>
