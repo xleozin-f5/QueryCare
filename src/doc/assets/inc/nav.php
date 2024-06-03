@@ -45,7 +45,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="qc_admin_dashboard.php" class="logo text-center">
+        <a href="qc_doc_dashboard.php" class="logo text-center">
             <span class="logo-lg">
                 <img src="assets/images/logo.png" alt="" height="50">
                 <!-- <span class="logo-lg-text-light">UBold</span> -->
