@@ -51,7 +51,7 @@
                             <a href="#">Gerir Consultas</a>
                         </li>
                         <li>
-                            <a href="qc_doctor_view_cons.php">Ver Consultas</a>
+                            <a href="qc_doc_view_cons.php">Ver Consultas</a>
                         </li>
                         <hr>
                     </ul>
