@@ -4,17 +4,6 @@
 		if(isset($_POST['discharge_patient']))
 		{
             $pat_number = $_GET['pat_number'];
-
-            /*
-			$pat_fname=$_POST['pat_fname'];
-			$pat_lname=$_POST['pat_lname'];
-			$pat_number=$_POST['pat_number'];
-            $pat_phone=$_POST['pat_phone'];
-            $pat_type=$_POST['pat_type'];
-            $pat_addr=$_POST['pat_addr'];
-            $pat_age = $_POST['pat_age'];
-            $pat_dob = $_POST['pat_dob'];
-            */
             
             $pat_discharge_status = $_POST['pat_discharge_status'];
             //sql to insert captured values
