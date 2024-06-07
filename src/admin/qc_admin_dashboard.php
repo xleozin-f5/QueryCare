@@ -121,7 +121,6 @@
                                                 <th colspan="2">Foto</th>
                                                 <th>Nome</th>
                                                 <th>Email</th>
-                                                <th>Departamento</th>
                                                 <th>Ação</th>
                                             </tr>
                                         </thead>
@@ -141,7 +140,6 @@
                                                 <td></td>
                                                 <td><?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?></td>
                                                 <td><?php echo $row->doc_email;?></td>
-                                                <td><?php echo $row->doc_dept;?></td>
                                                 <td>
                                                     <a href="qc_admin_view_single_employee.php?doc_id=<?php echo $row->doc_id;?>&&doc_number=<?php echo $row->doc_number;?>" class="btn btn-xs btn-primary"><i class="mdi mdi-eye"></i> Ver</a>
                                                 </td>

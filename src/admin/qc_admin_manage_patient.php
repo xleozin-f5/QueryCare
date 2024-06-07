@@ -106,6 +106,7 @@
                                                 <th data-toggle="true">Pacientes</th>
                                                 <th data-hide="phone">Número</th>
                                                 <th data-hide="phone">Morada</th>
+                                                <th data-hide="phone">Ação</th>
                                             </tr>
                                             </thead>
                                             <?php
@@ -128,7 +129,6 @@
                                                     <td><?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?></td>
                                                     <td><?php echo $row->pat_number;?></td>
                                                     <td><?php echo $row->pat_addr;?></td>
-                                                    <td><?php echo $row->pat_type;?></td>
                                                     
                                                     <td>
                                                         <!-- Botões de ação -->

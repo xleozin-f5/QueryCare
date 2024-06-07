@@ -106,7 +106,6 @@
                                                 <th>#</th>
                                                 <th data-toggle="true">Nome</th>
                                                 <th data-hide="phone">Cedula</th>
-                                                <th data-hide="phone">Departamento</th>
                                                 <th data-hide="phone">Email</th>
                                                 <th data-hide="phone">Ação</th>
                                             </tr>
@@ -130,7 +129,6 @@
                                                 <td><?php echo $cnt;?></td>
                                                 <td><?php echo $row->doc_fname;?> <?php echo $row->doc_lname;?></td>
                                                 <td><?php echo $row->doc_number;?></td>
-                                                <td><?php echo $row->doc_dept;?></td>
                                                 <td><?php echo $row->doc_email;?></td>
 
                                                 <td>

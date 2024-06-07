@@ -82,7 +82,7 @@
                                                 <th data-hide="phone">Numero</th>
                                                 <th data-hide="phone">Morada</th>
                                                 <th data-hide="phone">Telefone</th>
-                                                <th data-hide="phone">Idade</th>
+                                                <th data-hide="phone">Ação</th>
                                             </tr>
                                         </thead>
                                         <?php
@@ -107,8 +107,6 @@
                                                 <td><?php echo $row->pat_number;?></td>
                                                 <td><?php echo $row->pat_addr;?></td>
                                                 <td><?php echo $row->pat_phone;?></td>
-                                                <td><?php echo $row->pat_age;?> Years</td>
-                                                <td><?php echo $row->pat_type;?></td>
 
                                                 <td><a href="his_admin_view_single_patient.php?pat_id=<?php echo $row->pat_id;?>&&pat_number=<?php echo $row->pat_number;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> Ver</a></td>
                                             </tr>
