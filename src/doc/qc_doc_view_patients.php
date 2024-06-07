@@ -77,7 +77,7 @@
                                                 <th data-hide="phone">Número Paciente</th>
                                                 <th data-hide="phone">Morada</th>
                                                 <th data-hide="phone">Telefone</th>
-                                                <th data-hide="phone">Idade</th>
+                                                <th data-hide="phone">Ação</th>
                                             </tr>
                                         </thead>
                                         <?php
@@ -102,7 +102,6 @@
                                                 <td><?php echo $row->pat_number;?></td>
                                                 <td><?php echo $row->pat_addr;?></td>
                                                 <td><?php echo $row->pat_phone;?></td>
-                                                <td><?php echo $row->pat_age;?> Years</td>
                                                 <td><?php echo $row->pat_type;?></td>
 
                                                 <td><a href="qc_doc_view_single_patient.php?pat_id=<?php echo $row->pat_id;?>&&pat_number=<?php echo $row->pat_number;?>&&pat_name=<?php echo $row->pat_fname;?>_<?php echo $row->pat_lname;?>" class="badge badge-success"><i class="mdi mdi-eye"></i> View</a></td>

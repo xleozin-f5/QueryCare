@@ -90,7 +90,6 @@
                                                 <th>Nome</th>
                                                 <th>Morada</th>
                                                 <th>Telefone</th>
-                                                <th>Idade</th>
                                                 <th>Ação</th>
                                             </tr>
                                         </thead>
@@ -115,10 +114,6 @@
                                                 </td>
                                                 <td>
                                                     <?php echo $row->pat_phone;?>
-                                                </td>
-                            
-                                                <td>
-                                                    <?php echo $row->pat_age;?> Years
                                                 </td>
                                                 <td>
                                                     <a href="qc_doc_view_single_patient.php?pat_id=<?php echo $row->pat_id;?>&&pat_number=<?php echo $row->pat_number;?>&&pat_name=<?php echo $row->pat_fname;?>_<?php echo $row->pat_lname;?>" class="btn btn-xs btn-success"><i class="mdi mdi-eye"></i> View</a>
