@@ -31,7 +31,7 @@ if(isset($_POST['admin_login'])) {
         header("location: qc_admin_dashboard.php");
         exit; // Encerrar o script após redirecionar
     } else {
-        $err = "Access Denied. Please Check Your Credentials";
+        $err = "Acesso negado. Verifique suas credenciais";
     }
 }
 
