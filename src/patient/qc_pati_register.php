@@ -2,31 +2,39 @@
 session_start();
 include('assets/inc/config.php'); // Arquivo de configuração
 
+// Função para sanitizar os dados de entrada
+function sanitizeInput($data) {
+    return htmlspecialchars(strip_tags(trim($data)));
+}
+
 if(isset($_POST['patient_register'])) {
-    $pat_fname = $_POST['pat_fname'];
-    $pat_lname = $_POST['pat_lname'];
-    $pat_dob = $_POST['pat_dob'];
-    $pat_age = $_POST['pat_age'];
-    $pat_number = $_POST['pat_number'];
-    $pat_addr = $_POST['pat_addr'];
-    $pat_phone = $_POST['pat_phone'];
-    $pat_type = $_POST['pat_type'];
-    $pat_ailment = $_POST['pat_ailment'];
-    $pat_pwd = sha1(md5($_POST['pat_pwd'])); // Dupla criptografia para aumentar a segurança
+    // Sanitizando os inputs
+    $pat_fname = sanitizeInput($_POST['pat_fname']);
+    $pat_lname = sanitizeInput($_POST['pat_lname']);
+    $pat_dob = sanitizeInput($_POST['pat_dob']);
+    $pat_number = sanitizeInput($_POST['pat_number']);
+    $pat_addr = sanitizeInput($_POST['pat_addr']);
+    $pat_phone = sanitizeInput($_POST['pat_phone']);
+    $pat_type = sanitizeInput($_POST['pat_type']);
+    $pat_pwd = password_hash($_POST['pat_pwd'], PASSWORD_DEFAULT); // Usando password_hash para criptografar a senha
 
     // Inserir novo paciente na base de dados
-    $stmt = $mysqli->prepare("INSERT INTO his_patients (pat_fname, pat_lname, pat_dob, pat_age, pat_number, pat_addr, pat_phone, pat_type, pat_ailment, pat_pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param('sssissssss', $pat_fname, $pat_lname, $pat_dob, $pat_age, $pat_number, $pat_addr, $pat_phone, $pat_type, $pat_ailment, $pat_pwd);
-
-    if($stmt->execute()) {
-        $success = "Registro bem-sucedido. Faça login agora.";
+    $stmt = $mysqli->prepare("INSERT INTO his_patients (pat_fname, pat_lname, pat_dob, pat_number, pat_addr, pat_phone, pat_type, pat_pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    if ($stmt) {
+        $stmt->bind_param('sssisssss', $pat_fname, $pat_lname, $pat_dob, $pat_number, $pat_addr, $pat_phone, $pat_type, $pat_pwd);
+        if($stmt->execute()) {
+            $success = "Registro bem-sucedido. Faça login agora.";
+        } else {
+            $err = "Ocorreu um erro. Tente novamente.";
+        }
+        $stmt->close();
     } else {
-        $err = "Ocorreu um erro. Tente novamente.";
+        $err = "Ocorreu um erro na preparação da consulta.";
     }
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="utf-8" />
     <title>QueryCare</title>
@@ -58,7 +66,7 @@ if(isset($_POST['patient_register'])) {
     <?php } ?>
 </head>
 <body class="authentication-bg authentication-bg-pattern">
-    <div class="account-pages mt-5 mb-5">
+    <div class="account-pages mt-3 mb-3">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5">
@@ -71,44 +79,52 @@ if(isset($_POST['patient_register'])) {
                                 <p class="text-muted mb-4 mt-3">Preencha o formulário para se registrar.</p>
                             </div>
                             <form method='post'>
-                                <div class="form-group mb-3">
-                                    <label for="pat_fname">Primeiro Nome</label>
-                                    <input class="form-control" name="pat_fname" type="text" id="pat_fname" required="" placeholder="Digite seu primeiro nome">
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_fname">Primeiro Nome</label>
+                                        <input class="form-control" name="pat_fname" type="text" id="pat_fname" required placeholder="Primeiro nome">
+                                    </div>
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_lname">Último Nome</label>
+                                        <input class="form-control" name="pat_lname" type="text" id="pat_lname" required placeholder="Último nome">
+                                    </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_lname">Último Nome</label>
-                                    <input class="form-control" name="pat_lname" type="text" id="pat_lname" required="" placeholder="Digite seu último nome">
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_dob">Data de Nascimento</label>
+                                        <input class="form-control" name="pat_dob" type="date" id="pat_dob" required>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_number">N SnS</label>
+                                        <input class="form-control" name="pat_number" type="text" id="pat_number" required placeholder="ID de paciente">
+                                    </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_dob">Data de Nascimento</label>
-                                    <input class="form-control" name="pat_dob" type="date" id="pat_dob" required="" placeholder="Digite sua data de nascimento">
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_addr">Morada</label>
+                                        <input class="form-control" name="pat_addr" type="text" id="pat_addr" required placeholder="Digite seu endereço">
+                                    </div>
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_phone">Telefone</label>
+                                        <input class="form-control" name="pat_phone" type="text" id="pat_phone" required placeholder="Digite seu telefone">
+                                    </div>
                                 </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_number">N SnS</label>
-                                    <input class="form-control" name="pat_number" type="text" id="pat_number" required="" placeholder="Crie seu ID de paciente">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_addr">Morada</label>
-                                    <input class="form-control" name="pat_addr" type="text" id="pat_addr" required="" placeholder="Digite seu endereço">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_phone">Telefone</label>
-                                    <input class="form-control" name="pat_phone" type="text" id="pat_phone" required="" placeholder="Digite seu telefone">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_type">Tipo de Paciente</label>
-                                    <select class="form-control" name="pat_type" id="pat_type" required="">
-                                        <option value="InPatient">Interno</option>
-                                    </select>
-                                </div>
-                                <div class="form-group mb-3">
-                                    <label for="pat_pwd">Senha</label>
-                                    <input class="form-control" name="pat_pwd" type="password" required="" id="pat_pwd" placeholder="Crie uma senha">
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_type">Tipo de Paciente</label>
+                                        <select class="form-control" name="pat_type" id="pat_type" required>
+                                            <option value="InPatient">Ativo</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6 mb-2">
+                                        <label for="pat_pwd">Senha</label>
+                                        <input class="form-control" name="pat_pwd" type="password" required id="pat_pwd" placeholder="Crie uma senha">
+                                    </div>
                                 </div>
                                 <div class="form-group mb-0 text-center">
-                                    <button class="btn btn-success btn-block" name="patient_register" type="submit"> Registrar </button>
+                                    <button class="btn btn-success btn-block" name="patient_register" type="submit">Registrar</button>
                                 </div>
-                                <div class="text-center mt-4">
+                                <div class="text-center mt-2">
                                     <p class="text-muted">Já tem uma conta? <a href="index.php" class="text-primary">Faça login</a></p>
                                 </div>
                             </form>
