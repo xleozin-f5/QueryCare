@@ -20,11 +20,11 @@
 		
 		if($stmt && $stmt1) // Verifica se as queries foram executadas com sucesso
 		{
-			$success = "Password Updated"; // Define a mensagem de sucesso
+			$success = "Senha atualizada"; // Define a mensagem de sucesso
 		}
         else
         {
-			$err = "Please Try Again Or Try Later"; // Define a mensagem de erro
+			$err = "Por favor, tente novamente ou tente mais tarde"; // Define a mensagem de erro
         }
 	}
 ?>

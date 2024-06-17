@@ -50,7 +50,7 @@
     <!-- Este código é para injetar um alerta -->
     <script>
     setTimeout(function() {
-            swal("Sucesso", "<?php echo $success;?>", "success");
+            swal("Sucesso", "<?php echo $success;?>", "Sucesso");
         },
         100);
     </script>

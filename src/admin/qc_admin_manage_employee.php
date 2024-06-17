@@ -24,12 +24,12 @@
           if($stmt)
           {
             // Mensagem de sucesso ao excluir o médico
-            $success = "Employee Fired";
+            $success = "Médico excluído";
           }
             else
             {
                 // Mensagem de erro ao excluir o médico
-                $err = "Try Again Later";
+                $err = "Tente mais tarde";
             }
     }
 ?>
