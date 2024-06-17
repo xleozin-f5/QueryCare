@@ -55,10 +55,10 @@
                             $ret="SELECT  * FROM his_docs WHERE doc_number=?";
                             $stmt= $mysqli->prepare($ret) ;
                             $stmt->bind_param('i',$doc_number);
-                            $stmt->execute() ;//ok
+                            $stmt->execute() ;
                             $res=$stmt->get_result();
-                            while($row=$res->fetch_object())
-                            {
+                            $row=$res->fetch_object();
+                            if($row) {
                         ?>
                         <div class="row">
                             <div class="col-12">
@@ -101,7 +101,7 @@
                                 </div> <!-- end card-->
                             </div> <!-- end col -->
                         </div>
-                        <?php }?>
+                        <?php } ?>
                     </div> <!-- container -->
                 </div> <!-- content -->
                 <?php include('assets/inc/footer.php');?>
