@@ -101,6 +101,7 @@
                                                 <th data-toggle="true">Nome</th>
                                                 <th data-hide="phone">Número Paciente</th>
                                                 <th data-hide="phone">Morada</th>
+                                                <th data-hide="phone">Ação</th>
                                             </tr>
                                         </thead>
                                         <?php
@@ -123,7 +124,6 @@
                                                 <td><?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?></td>
                                                 <td><?php echo $row->pat_number;?></td>
                                                 <td><?php echo $row->pat_addr;?></td>
-                                                <td><?php echo $row->pat_type;?></td>
 
                                                 <td>
                                                     <!-- <a href="qc_admin_manage_patient.php?delete=<?php echo $row->pat_id;?>" class="badge badge-danger"><i class=" mdi mdi-trash-can-outline "></i> Delete</a>-->

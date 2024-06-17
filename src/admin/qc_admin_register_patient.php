@@ -100,10 +100,6 @@
                                                 <label for="inputEmail4" class="col-form-label">Data de Nascimento</label>
                                                 <input type="text" required="required" name="pat_dob" class="form-control" id="inputEmail4" placeholder="DD/MM/AAAA">
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword4" class="col-form-label">Idade</label>
-                                                <input required="required" type="text" name="pat_age" class="form-control" id="inputPassword4" placeholder="Idade do Paciente">
-                                            </div>
                                         </div>
 
                                         <div class="form-group">
