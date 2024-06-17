@@ -12,7 +12,7 @@
         <li class="d-none d-sm-block"></li>
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="./assets/images/users/user.png<?php echo $row->pat_dpic;?>" alt="dpic" class="rounded-circle">
+                <img src="./assets/images/users/photoprofile.png<?php echo $row->pat_dpic;?>" alt="dpic" class="rounded-circle">
                 <span class="pro-user-name ml-1">
                     <?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?> <i class="mdi mdi-chevron-down"></i>
                 </span>

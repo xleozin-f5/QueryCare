@@ -29,7 +29,7 @@
 
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                <img src="assets/images/users/<?php echo $row->ad_dpic;?>" alt="dpic" class="rounded-circle">
+                <img src="assets/images/users/photoprofile.png<?php echo $row->ad_dpic;?>" alt="dpic" class="rounded-circle">
                 <span class="pro-user-name ml-1">
                     <?php echo $row->ad_fname;?> <?php echo $row->ad_lname;?> <i class="mdi mdi-chevron-down"></i>
                 </span>
