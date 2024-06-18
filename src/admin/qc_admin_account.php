@@ -13,7 +13,7 @@
         $ad_dpic = $_FILES["ad_dpic"]["name"];
         
         // Mover a imagem de perfil para a pasta de imagens de utilizadores
-        move_uploaded_file($_FILES["ad_dpic"]["tmp_name"], "assets/images/users/" . $_FILES["ad_dpic"]["name"]);
+        move_uploaded_file($_FILES["ad_dpic"]["tmp_name"], "assets/images/users/photoprofile.png" . $_FILES["ad_dpic"]["name"]);
 
         // SQL para atualizar os valores capturados
         $query = "UPDATE his_admin SET ad_fname=?, ad_lname=?, ad_email=?, ad_dpic=? WHERE ad_id=?";
