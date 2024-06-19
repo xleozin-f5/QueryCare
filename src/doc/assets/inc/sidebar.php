@@ -45,7 +45,7 @@
                     </a>
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
-                            <a href="#">Agendar Consulta</a>
+                            <a href="qc_doc_create_cons.php">Agendar Consulta</a>
                         </li>
                         <li>
                             <a href="qc_doc_manage_cons.php">Gerir Consultas</a>
