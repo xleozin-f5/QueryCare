@@ -3,26 +3,50 @@ session_start();
 include('assets/inc/config.php');
 include('assets/inc/checklogin.php');
 check_login();
-$pat_id=$_SESSION['pat_id'];
+
 $pat_number = $_SESSION['pat_number'];
 
+// Consulta SQL para contar o número de consultas agendadas para o paciente atual
+$sql_count = "SELECT COUNT(*) AS total_consultas FROM his_medical_records WHERE mdr_pat_number = ?";
+$stmt_count = $mysqli->prepare($sql_count);
+$stmt_count->bind_param('s', $pat_number);
+$stmt_count->execute();
+$stmt_count->bind_result($total_consultas);
+$stmt_count->fetch();
+$stmt_count->close();
+
+// Consulta SQL para obter as consultas agendadas para o paciente atual
+$sql = "SELECT m.mdr_id, m.mdr_pat_name, DATE_FORMAT(m.mdr_date_rec, '%Y-%m-%d %H:%i:%s') AS formatted_date, m.mdr_reason, d.doc_fname 
+        FROM his_medical_records m
+        INNER JOIN his_docs d ON m.mdr_doc_id = d.doc_id
+        WHERE m.mdr_pat_number = ?";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param('s', $pat_number);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<!--Head Code-->
-<?php include("assets/inc/head.php");?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QueryCare - Painel do Paciente</title>
+    <?php include("assets/inc/head.php"); ?>
+</head>
 
 <body>
 
     <!-- Begin page -->
     <div id="wrapper">
+
         <!-- Topbar Start -->
-        <?php include('assets/inc/nav.php');?>
+        <?php include('assets/inc/nav.php'); ?>
         <!-- end Topbar -->
 
         <!-- ========== Left Sidebar Start ========== -->
-        <?php include('assets/inc/sidebar.php');?>
+        <?php include("assets/inc/sidebar.php"); ?>
         <!-- Left Sidebar End -->
 
         <!-- ============================================================== -->
@@ -38,11 +62,11 @@ $pat_number = $_SESSION['pat_number'];
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box">
-
                                 <h4 class="page-title">QueryCare - Painel do Paciente</h4>
                             </div>
                         </div>
                     </div>
+                    <!-- end page title -->
 
                     <div class="row">
                         <!-- Patient Information -->
@@ -55,6 +79,16 @@ $pat_number = $_SESSION['pat_number'];
                             </div>
                         </div>
                         <!-- end Patient Information -->
+
+                        <!-- Consultas Agendadas -->
+                        <div class="col-xl-6">
+                            <div class="card-box">
+                                <h4 class="header-title mb-3">Consultas Agendadas</h4>
+                                <p>Número de Consultas Agendadas: <?php echo $total_consultas; ?></p>
+                                <!-- Você pode adicionar mais detalhes ou listar as consultas aqui -->
+                            </div>
+                        </div>
+                        <!-- end Consultas Agendadas -->
                     </div>
 
                     <div class="row">
@@ -66,7 +100,7 @@ $pat_number = $_SESSION['pat_number'];
             </div> <!-- content -->
 
             <!-- Footer Start -->
-            <?php include('assets/inc/footer.php');?>
+            <?php include('assets/inc/footer.php'); ?>
             <!-- end Footer -->
 
         </div>
@@ -87,9 +121,6 @@ $pat_number = $_SESSION['pat_number'];
 
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
-
-    <!-- Plugins js-->
-    <!-- Incluir plugins ou scripts adicionais conforme necessário -->
 
     <!-- App js-->
     <script src="assets/js/app.min.js"></script>

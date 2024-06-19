@@ -17,7 +17,7 @@ function agendarConsulta($conn, $nome_paciente, $numero_paciente, $data_consulta
     }
 
     // Vincular os parâmetros
-    $data_hora_consulta = $data_consulta . ' ' . $hora_consulta . ' ';
+    $data_hora_consulta = $data_consulta . ' ' . $hora_consulta;
     $stmt->bind_param("sssss", $nome_paciente, $numero_paciente, $data_hora_consulta, $medico_id, $razao_consulta);
 
     // Executar a declaração SQL
@@ -31,8 +31,9 @@ function agendarConsulta($conn, $nome_paciente, $numero_paciente, $data_consulta
 
 // Verificar se o formulário foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome_paciente = $_POST["nome_paciente"];
-    $numero_paciente = $_POST["numero_paciente"];
+    // Pegar o nome do paciente da sessão
+    $nome_paciente = $_SESSION['pat_name'];
+    $numero_paciente = $_SESSION['pat_number'];
     $data_consulta = $_POST["data_consulta"];
     $hora_consulta = $_POST["hora_consulta"];
     $medico_id = $_POST["medico_id"];
@@ -60,61 +61,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="header-title mb-4" style="font-size: 28px;">Agendar Consulta</h2>
-                                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="nome_paciente">Nome do paciente</label>
-                                                <input type="text" name="nome_paciente" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="numero_paciente">Número do paciente</label>
-                                                <input type="text" name="numero_paciente" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="data_consulta">Data da consulta</label>
-                                                <input type="date" name="data_consulta" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="hora_consulta">Hora da consulta</label>
-                                                <input type="time" name="hora_consulta" class="form-control" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="medico_id">Médico</label>
-                                                <select name="medico_id" class="form-control" required>
-                                                    <?php
-                                                        $result = $mysqli->query("SELECT doc_id, doc_fname FROM his_docs");
-                                                        while ($row = $result->fetch_assoc()) {
-                                                            echo "<option value='" . $row['doc_id'] . "'>" . $row['doc_fname'] . "</option>";
-                                                        }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="razao_consulta">Motivo da consulta</label>
-                                                <input type="text" name="razao_consulta" class="form-control" required>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-primary">Agendar Consulta</button>
-                                        </div>
-                                    </form>
-                                </div>
+                        <div class="col-12">
+                            <div class="card-box">
+                                <h4 class="header-title">Agendar Consulta</h4>
+                                <form method="POST" action="">
+                                    <div class="form-group">
+                                        <label for="data_consulta">Data da Consulta:</label>
+                                        <input type="date" class="form-control" id="data_consulta" name="data_consulta" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hora_consulta">Hora da Consulta:</label>
+                                        <input type="time" class="form-control" id="hora_consulta" name="hora_consulta" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="medico_id">Médico:</label>
+                                        <select class="form-control" id="medico_id" name="medico_id" required>
+                                            <?php
+                                            // Consultar os médicos disponíveis
+                                            $stmt = $mysqli->prepare("SELECT doc_id, doc_fname, doc_lname FROM his_docs");
+                                            $stmt->execute();
+                                            $stmt->bind_result($doc_id, $doc_fname, $doc_lname);
+                                            while ($stmt->fetch()) {
+                                                echo "<option value='$doc_id'>$doc_fname $doc_lname</option>";
+                                            }
+                                            $stmt->close();
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="razao_consulta">Razão da Consulta:</label>
+                                        <textarea class="form-control" id="razao_consulta" name="razao_consulta" rows="3" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Agendar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php include('assets/inc/footer.php');?>
         </div>
-
-        <div class="rightbar-overlay"></div>
-
-        <script src="assets/js/vendor.min.js"></script>
     </div>
+    <div class="rightbar-overlay"></div>
 </body>
 </html>
