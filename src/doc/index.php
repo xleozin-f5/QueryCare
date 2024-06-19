@@ -79,8 +79,8 @@
                         <div class="card-body p-4">
 
                         <div class="text-center w-75 m-auto">
-                                <a href="/QueryCare/public/login.html" class="logo">
-                                    <span style="font-size: 32px;">QueryCare</span>
+                        <a href="/QueryCare/public/login.html" class="logo">
+                                    <img src="./assets/images/querycareblc.png" alt="QueryCare Logo" style="height: 60px;">
                                 </a>
                                 <p class="text-muted mb-4 mt-3">Introduza o seu código e senha para aceder ao seu painel médico.</p>
                             </div>
