@@ -54,7 +54,6 @@ $consultas = $result->fetch_all(MYSQLI_ASSOC);
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
                                                 <th>Nome do Paciente</th>
                                                 <th>Número do Paciente</th>
                                                 <th>Data e Hora da Consulta</th>
@@ -66,7 +65,6 @@ $consultas = $result->fetch_all(MYSQLI_ASSOC);
                                         <tbody>
                                             <?php foreach ($consultas as $consulta): ?>
                                                 <tr>
-                                                    <td><?php echo isset($consulta['mdr_id']) ? htmlspecialchars($consulta['mdr_id']) : ''; ?></td>
                                                     <td><?php echo isset($consulta['mdr_pat_name']) ? htmlspecialchars($consulta['mdr_pat_name']) : ''; ?></td>
                                                     <td><?php echo isset($consulta['mdr_pat_number']) ? htmlspecialchars($consulta['mdr_pat_number']) : ''; ?></td>
                                                     <td><?php echo isset($consulta['mdr_date_rec']) ? htmlspecialchars($consulta['mdr_date_rec']) : ''; ?></td>

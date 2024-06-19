@@ -77,7 +77,6 @@
                                     <table id="demo-foo-filtering" class="table table-bordered toggle-circle mb-0" data-page-size="7">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
                                                 <th data-toggle="true">Nome</th>
                                                 <th data-hide="phone">Numero</th>
                                                 <th data-hide="phone">Morada</th>
@@ -102,7 +101,6 @@
 
                                         <tbody>
                                             <tr>
-                                                <td><?php echo $cnt;?></td>
                                                 <td><?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?></td>
                                                 <td><?php echo $row->pat_number;?></td>
                                                 <td><?php echo $row->pat_addr;?></td>
