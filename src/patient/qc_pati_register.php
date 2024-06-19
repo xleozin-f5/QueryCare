@@ -1,10 +1,13 @@
 <?php
+ini_set('display_errors', 1); // Mostra erros no ambiente de desenvolvimento
+error_reporting(E_ALL); // Reporta todos os tipos de erros
+
 session_start();
-include('assets/inc/config.php'); // Arquivo de configuração
+include('assets/inc/config.php'); // Arquivo de configuração (verifique se está corretamente configurado)
 
 // Função para sanitizar os dados de entrada
 function sanitizeInput($data) {
-    return htmlspecialchars(strip_tags(trim($data)));
+    return !empty($data) ? htmlspecialchars(strip_tags(trim($data))) : null;
 }
 
 if(isset($_POST['patient_register'])) {
@@ -16,16 +19,19 @@ if(isset($_POST['patient_register'])) {
     $pat_addr = sanitizeInput($_POST['pat_addr']);
     $pat_phone = sanitizeInput($_POST['pat_phone']);
     $pat_type = sanitizeInput($_POST['pat_type']);
-    $pat_pwd = password_hash($_POST['pat_pwd'], PASSWORD_DEFAULT); // Usando password_hash para criptografar a senha
+    $pat_pwd = $_POST['pat_pwd']; // Obtendo a senha do formulário
+
+  // Criptografando a senha
+    $hashed_password = password_hash($pat_pwd, PASSWORD_DEFAULT);
 
     // Inserir novo paciente na base de dados
     $stmt = $mysqli->prepare("INSERT INTO his_patients (pat_fname, pat_lname, pat_dob, pat_number, pat_addr, pat_phone, pat_type, pat_pwd) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     if ($stmt) {
-        $stmt->bind_param('sssisssss', $pat_fname, $pat_lname, $pat_dob, $pat_number, $pat_addr, $pat_phone, $pat_type, $pat_pwd);
+        $stmt->bind_param('ssssssss', $pat_fname, $pat_lname, $pat_dob, $pat_number, $pat_addr, $pat_phone, $pat_type, $hashed_password);
         if($stmt->execute()) {
             $success = "Registro bem-sucedido. Faça login agora.";
         } else {
-            $err = "Ocorreu um erro. Tente novamente.";
+            $err = "Ocorreu um erro ao registrar o paciente. Tente novamente.";
         }
         $stmt->close();
     } else {
@@ -121,23 +127,24 @@ if(isset($_POST['patient_register'])) {
                                         <input class="form-control" name="pat_pwd" type="password" required id="pat_pwd" placeholder="Crie uma senha">
                                     </div>
                                 </div>
-                                <div class="form-group mb-0 text-center">
-                                    <button class="btn btn-success btn-block" name="patient_register" type="submit">Registrar</button>
-                                </div>
-                                <div class="text-center mt-2">
-                                    <p class="text-muted">Já tem uma conta? <a href="index.php" class="text-primary">Faça login</a></p>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                                    <div class="form-group mb-0 text-center">
+                                        <button class="btn btn-success btn-block" name="patient_register" type="submit">Registrar</button>
+                                    </div>
+                            <div class="text-center mt-2">
+                                <p class="text-muted">Já tem uma conta? <a href="index.php" class="text-primary">Faça login</a></p>
+                                     </div>
+                                 </form>
+                               </div>
+                             </div>
+                          </div>
+                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Rodapé -->
-    <?php include ("assets/inc/footer1.php");?>
-    <!-- Scripts -->
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/app.min.js"></script>
+         </div>
+<!-- Rodapé -->
+        <?php include ("assets/inc/footer1.php");?>
+<!-- Scripts -->
+<script src="assets/js/vendor.min.js"></script>
+<script src="assets/js/app.min.js"></script>
+
 </body>
 </html>

@@ -1,29 +1,35 @@
 <?php
-ini_set('display_errors', 0); // Desativando a exibição de erros no ambiente de produção
-error_reporting(0); // Ocultando todos os tipos de erros
+ini_set('display_errors', 1); // Desativando a exibição de erros no ambiente de produção
+error_reporting(1); // Ocultando todos os tipos de erros
 
 session_start();
 include('assets/inc/config.php'); // Arquivo de configuração
 
 if(isset($_POST['patient_login'])) {
     $pat_number = $_POST['pat_number'];
-    $pat_pwd = sha1(md5($_POST['pat_pwd'])); // Dupla criptografia para aumentar a segurança
+    $pat_pwd = $_POST['pat_pwd']; // Senha não criptografada do formulário
 
     // Consulta SQL para verificar as credenciais do paciente
-    $stmt = $mysqli->prepare("SELECT pat_id, pat_number, pat_fname, pat_lname FROM his_patients WHERE pat_number=? AND pat_pwd=?");
-    $stmt->bind_param('ss', $pat_number, $pat_pwd);
+    $stmt = $mysqli->prepare("SELECT pat_id, pat_number, pat_fname, pat_lname, pat_pwd FROM his_patients WHERE pat_number=?");
+    $stmt->bind_param('s', $pat_number);
     $stmt->execute();
     $stmt->store_result(); // Armazenando o resultado para verificar o número de linhas retornadas
     $num_rows = $stmt->num_rows;
 
     if($num_rows > 0) {
-        $stmt->bind_result($pat_id, $pat_number, $pat_fname, $pat_lname);
+        $stmt->bind_result($pat_id, $pat_number, $pat_fname, $pat_lname, $hashed_password);
         $stmt->fetch();
-        $_SESSION['pat_id'] = $pat_id;
-        $_SESSION['pat_number'] = $pat_number;
-        $_SESSION['pat_name'] = $pat_fname . ' ' . $pat_lname; // Armazenando o nome completo do paciente na sessão
-        header("location:qc_pati_dashboard.php");
-        exit; // Importante: terminar o script após redirecionar o usuário
+        
+        // Verificando a senha usando password_verify
+        if (password_verify($pat_pwd, $hashed_password)) {
+            $_SESSION['pat_id'] = $pat_id;
+            $_SESSION['pat_number'] = $pat_number;
+            $_SESSION['pat_name'] = $pat_fname . ' ' . $pat_lname; // Armazenando o nome completo do paciente na sessão
+            header("location: qc_pati_dashboard.php");
+            exit; // Termina o script após redirecionar o usuário
+        } else {
+            $err = "Acesso Negado. Verifique suas credenciais.";
+        }
     } else {
         $err = "Acesso Negado. Verifique suas credenciais.";
     }
