@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1); // Desativando a exibição de erros no ambiente de produção
 error_reporting(1); // Ocultando todos os tipos de erros
-
+error_reporting(E_ALL);
 session_start();
 include('assets/inc/config.php'); // Arquivo de configuração
 
