@@ -55,6 +55,22 @@
                     </ul>
                     <li>
                     <a href="javascript: void(0);">
+                        <i class="mdi mdi-account-tie"></i>
+                        <span> Admin </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <ul class="nav-second-level" aria-expanded="false">
+                        <li>
+                            <a href="qc_admin_add.php">Adicionar Admin</a>
+                        </li>
+                        <li>
+                            <a href="qc_admin_manage.php">Gerir Admin</a>
+                        </li>
+                        <hr>
+                    </ul>
+                    <li>
+                    <li>
+                    <a href="javascript: void(0);">
                         <i class="far fa-calendar-alt"></i>
                         <span> Consultas </span>
                         <span class="menu-arrow"></span>
