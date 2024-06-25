@@ -46,7 +46,7 @@ if(isset($err)) {
     <meta charset="utf-8" />
     <title>QueryCare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
     <!-- App css -->

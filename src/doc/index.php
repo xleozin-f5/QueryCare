@@ -36,7 +36,7 @@
     <title>QueryCare</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- App favicon -->
-    <link rel="icon" type="image/x-icon" href="./assets/img/logo.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo.png" />
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
