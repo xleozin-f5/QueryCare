@@ -80,15 +80,25 @@ $result = $stmt->get_result();
                         </div>
                         <!-- end Patient Information -->
 
-                        <!-- Consultas Agendadas -->
-                        <div class="col-xl-6">
-                            <div class="card-box">
-                                <h4 class="header-title mb-3">Consultas Agendadas</h4>
-                                <p>Número de Consultas Agendadas: <?php echo $total_consultas; ?></p>
-                                <!-- Você pode adicionar mais detalhes ou listar as consultas aqui -->
-                            </div>
-                        </div>
-                        <!-- end Consultas Agendadas -->
+<!-- Consultas Agendadas -->
+<div class="col-xl-6">
+    <div class="widget-rounded-circle card-box">
+        <div class="row">
+            <div class="col-6">
+                <div class="avatar-lg rounded-circle bg-soft-primary border-primary border">
+                    <i class="mdi mdi-calendar-check font-22 avatar-title text-primary"></i>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-right">
+                    <h3 class="text-dark mt-1"><span data-plugin="counterup"><?php echo $total_consultas; ?></span></h3>
+                    <p class="text-muted mb-1 text-truncate">Consultas Agendadas</p>
+                </div>
+            </div>
+        </div> <!-- Fim da linha -->
+    </div> <!-- Fim do widget-rounded-circle -->
+</div> <!-- Fim da coluna -->
+<!-- Fim de Consultas Agendadas -->
                     </div>
 
                     <div class="row">
