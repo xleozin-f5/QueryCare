@@ -52,28 +52,5 @@
             </span>
         </a>
     </div>
-
-    <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
-        <li>
-            <button class="button-menu-mobile waves-effect waves-light">
-                <i class="fe-menu"></i>
-            </button>
-        </li>
-        <li class="dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                Criar Novo
-                <i class="mdi mdi-chevron-down"></i>
-            </a>
-            <div class="dropdown-menu">
-
-
-                <!-- item-->
-                <a href="his_doc_register_patient.php" class="dropdown-item">
-                    <i class="fe-activity mr-1"></i>
-                    <span>Utente</span>
-                </a>
-            </div>
-        </li>
-    </ul>
 </div>
 <?php }?>
