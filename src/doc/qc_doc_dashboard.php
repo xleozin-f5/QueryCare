@@ -73,6 +73,7 @@
                             </div> <!-- end widget-rounded-circle-->
                         </div> <!-- end col-->
                         <!--End Out Patients-->
+                        
                     </div>
                     <div class="row">
                          <!--Start Vendors-->
