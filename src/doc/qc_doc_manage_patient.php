@@ -99,7 +99,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th data-toggle="true">Nome</th>
-                                                <th data-hide="phone">Número Paciente</th>
+                                                <th data-hide="phone">Nº. Utente de Saúde</th>
                                                 <th data-hide="phone">Morada</th>
                                                 <th data-hide="phone">Ação</th>
                                             </tr>
