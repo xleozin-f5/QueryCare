@@ -11,22 +11,6 @@
 ?>
 <div class="navbar-custom">
     <ul class="list-unstyled topnav-menu float-right mb-0">
-
-        <li class="d-none d-sm-block">
-            <form class="app-search">
-                <div class="app-search-box">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <div class="input-group-append">
-                            <button class="btn" type="submit">
-                                <i class="fe-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </li>
-
         <li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <img src="assets/images/users/photoprofile.png<?php echo $row->ad_dpic;?>" alt="dpic" class="rounded-circle">
@@ -74,30 +58,6 @@
                 <i class="fe-menu"></i>
             </button>
         </li>
-
-        <li class="dropdown d-none d-lg-block">
-            <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                Criar novo
-                <i class="mdi mdi-chevron-down"></i>
-            </a>
-            <div class="dropdown-menu">
-                <!-- item-->
-                <a href="qc_admin_add_employee.php" class="dropdown-item">
-                    <i class="fe-users mr-1"></i>
-                    <span>Médico</span>
-                </a>
-
-                <!-- item-->
-                <a href="qc_admin_register_patient.php" class="dropdown-item">
-                    <i class="fe-activity mr-1"></i>
-                    <span>Utente</span>
-                </a>
-                <div class="dropdown-divider"></div>
-
-
-            </div>
-        </li>
-
     </ul>
 </div>
 <?php }?>
