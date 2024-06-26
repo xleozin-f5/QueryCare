@@ -100,7 +100,7 @@ if (isset($_POST['update_pwd'])) {
                                 <img src="../pat/assets/images/users/<?php echo $row->pat_dpic;?>" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
                                 <div class="text-center mt-3">
                                     <p class="text-muted mb-2 font-13"><strong>Nome Completo :</strong> <span class="ml-2"><?php echo $row->pat_fname;?> <?php echo $row->pat_lname;?></span></p>
-                                    <p class="text-muted mb-2 font-13"><strong>Número de Paciente :</strong> <span class="ml-2"><?php echo $row->pat_number;?></span></p>
+                                    <p class="text-muted mb-2 font-13"><strong>Nº. Utente de Saúde :</strong> <span class="ml-2"><?php echo $row->pat_number;?></span></p>
                                     <p class="text-muted mb-2 font-13"><strong>Telefone :</strong> <span class="ml-2"><?php echo $row->pat_phone;?></span></p>
                                 </div>
                             </div> <!-- end card-box -->

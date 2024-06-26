@@ -74,7 +74,7 @@ $result = $stmt->get_result();
                             <div class="card-box">
                                 <h4 class="header-title mb-3">Informações do Paciente</h4>
                                 <!-- Exibir informações do paciente -->
-                                <p>ID do Paciente: <?php echo $pat_number; ?></p>
+                                <p>Nº. Utente de Saúde: <?php echo $pat_number; ?></p>
                                 <!-- Você pode adicionar mais informações do paciente aqui -->
                             </div>
                         </div>

@@ -82,7 +82,7 @@ class="authentication-bg authentication-bg-pattern">
                             </div>
                             <form method="post">
                                 <div class="mb-3">
-                                    <label for="pat_number" class="form-label">ID do Paciente</label>
+                                    <label for="pat_number" class="form-label">Nº. Utente de Saúde</label>
                                     <input class="form-control" name="pat_number" type="text" id="pat_number" required placeholder="Insira seu ID de paciente">
                                 </div>
                                 <div class="mb-3">

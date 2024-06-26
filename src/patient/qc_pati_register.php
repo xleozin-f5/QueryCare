@@ -101,7 +101,7 @@ if(isset($_POST['patient_register'])) {
                                         <input class="form-control" name="pat_dob" type="date" id="pat_dob" required>
                                     </div>
                                     <div class="form-group col-md-6 mb-2">
-                                        <label for="pat_number">N SnS</label>
+                                        <label for="pat_number">Nº. Utente de Saúde</label>
                                         <input class="form-control" name="pat_number" type="text" id="pat_number" required placeholder="ID de paciente">
                                     </div>
                                 </div>
