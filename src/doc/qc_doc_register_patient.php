@@ -17,11 +17,6 @@
 			$stmt = $mysqli->prepare($query);
 			$rc=$stmt->bind_param('sssssssss', $pat_fname, $pat_ailment, $pat_lname, $pat_age, $pat_dob, $pat_number, $pat_phone, $pat_type, $pat_addr);
 			$stmt->execute();
-			/*
-			*Use Sweet Alerts Instead Of This Fucked Up Javascript Alerts
-			*echo"<script>alert('Successfully Created Account Proceed To Log In ');</script>";
-			*/ 
-			//declare a varible which will be passed to alert function
 			if($stmt)
 			{
 				$success = "Patient Details Added";
@@ -87,11 +82,11 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputEmail4" class="col-form-label">Nome</label>
-                                                <input type="text" required="required" name="pat_fname" class="form-control" id="inputEmail4" placeholder="Patient's First Name">
+                                                <input type="text" required="required" name="pat_fname" class="form-control" id="inputEmail4" placeholder="Paciente Nome">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputPassword4" class="col-form-label">Sobrenome</label>
-                                                <input required="required" type="text" name="pat_lname" class="form-control" id="inputPassword4" placeholder="Patient`s Last Name">
+                                                <input required="required" type="text" name="pat_lname" class="form-control" id="inputPassword4" placeholder="Paciente Sobrenome">
                                             </div>
                                         </div>
 
@@ -100,15 +95,11 @@
                                                 <label for="inputEmail4" class="col-form-label">Data de Nascimento</label>
                                                 <input type="text" required="required" name="pat_dob" class="form-control" id="inputEmail4" placeholder="DD/MM/YYYY">
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputPassword4" class="col-form-label">Idade</label>
-                                                <input required="required" type="text" name="pat_age" class="form-control" id="inputPassword4" placeholder="Patient`s Age">
-                                            </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="inputAddress" class="col-form-label">Morada</label>
-                                            <input required="required" type="text" class="form-control" name="pat_addr" id="inputAddress" placeholder="Patient's Addresss">
+                                            <input required="required" type="text" class="form-control" name="pat_addr" id="inputAddress" placeholder="Paciente Morada">
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-4">

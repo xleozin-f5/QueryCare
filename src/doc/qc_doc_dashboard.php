@@ -66,7 +66,7 @@
                                                     $stmt->close();
                                                 ?>
                                             <h3 class="text-dark mt-1"><span data-plugin="counterup"><?php echo $patient;?></span></h3>
-                                            <p class="text-muted mb-1 text-truncate">Utentes</p>
+                                            <p class="text-muted mb-1 text-truncate">Pacientes</p>
                                         </div>
                                     </div>
                                 </div> <!-- end row-->
@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card-box">
-                                <h4 class="header-title mb-3">Utentes</h4>
+                                <h4 class="header-title mb-3">Pacientes</h4>
 
                                 <div class="table-responsive">
                                     <table class="table table-borderless table-hover table-centered m-0">
