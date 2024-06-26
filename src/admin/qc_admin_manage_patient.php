@@ -104,7 +104,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th data-toggle="true">Pacientes</th>
-                                                <th data-hide="phone">Número</th>
+                                                <th data-hide="phone">Nº. Utente de Saúde</th>
                                                 <th data-hide="phone">Morada</th>
                                                 <th data-hide="phone">Ação</th>
                                             </tr>

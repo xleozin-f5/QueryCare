@@ -78,7 +78,7 @@
                                         <thead>
                                             <tr>
                                                 <th data-toggle="true">Nome</th>
-                                                <th data-hide="phone">Numero</th>
+                                                <th data-hide="phone">Nº. Utente de Saúde</th>
                                                 <th data-hide="phone">Morada</th>
                                                 <th data-hide="phone">Telefone</th>
                                                 <th data-hide="phone">Ação</th>
