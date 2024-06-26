@@ -102,17 +102,17 @@ if(isset($_POST['patient_register'])) {
                                     </div>
                                     <div class="form-group col-md-6 mb-2">
                                         <label for="pat_number">Nº. Utente de Saúde</label>
-                                        <input class="form-control" name="pat_number" type="text" id="pat_number" required placeholder="ID de paciente">
+                                        <input class="form-control" name="pat_number" type="text" id="pat_number" required placeholder="Nº. Utente de Saúde">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-6 mb-2">
                                         <label for="pat_addr">Morada</label>
-                                        <input class="form-control" name="pat_addr" type="text" id="pat_addr" required placeholder="Digite seu endereço">
+                                        <input class="form-control" name="pat_addr" type="text" id="pat_addr" required placeholder="Digite sua Morada">
                                     </div>
                                     <div class="form-group col-md-6 mb-2">
                                         <label for="pat_phone">Telefone</label>
-                                        <input class="form-control" name="pat_phone" type="text" id="pat_phone" required placeholder="Digite seu telefone">
+                                        <input class="form-control" name="pat_phone" type="text" id="pat_phone" required placeholder="Digite seu Telefone">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -124,7 +124,7 @@ if(isset($_POST['patient_register'])) {
                                     </div>
                                     <div class="form-group col-md-6 mb-2">
                                         <label for="pat_pwd">Senha</label>
-                                        <input class="form-control" name="pat_pwd" type="password" required id="pat_pwd" placeholder="Crie uma senha">
+                                        <input class="form-control" name="pat_pwd" type="password" required id="pat_pwd" placeholder="Crie uma Senha">
                                     </div>
                                 </div>
                                     <div class="form-group mb-0 text-center">
