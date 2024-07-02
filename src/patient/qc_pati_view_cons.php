@@ -46,7 +46,7 @@ $result = $stmt->get_result();
                                         <table class="table table-bordered mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Nome do Paciente</th>
+                                                    <th>Paciente</th>
                                                     <th>Data da Consulta</th>
                                                     <th>Médico</th>
                                                     <th>Motivo</th>

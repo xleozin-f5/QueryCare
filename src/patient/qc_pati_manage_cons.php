@@ -46,9 +46,8 @@ $result = $stmt->get_result();
                                         <table class="table table-bordered mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Nome do Paciente</th>
+                                                    <th>Paciente</th>
                                                     <th>Data da Consulta</th>
-                                                    <th>Hora da Consulta</th>
                                                     <th>Médico</th>
                                                     <th>Ações</th>
                                                 </tr>
@@ -60,8 +59,7 @@ $result = $stmt->get_result();
                                                     while($row = $result->fetch_assoc()) {
                                                         echo "<tr>";
                                                         echo "<td>" . $row["mdr_pat_name"] . "</td>";
-                                                        echo "<td>" . $row["mdr_date_rec"] . "</td>";
-                                                        echo "<td>" . $row["mdr_time_rec"] . "</td>";
+                                                        echo "<td>" . $row["mdr_date_rec"] . "</td>";               
                                                         echo "<td>" . $row["doc_fname"] . "</td>";
                                                         echo "<td>
                                                                 <button type='button' class='btn btn-info' data-toggle='modal' data-target='#editModal' 
