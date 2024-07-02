@@ -78,7 +78,7 @@ class="authentication-bg authentication-bg-pattern">
                                 <a href="/QueryCare/public/login.html" class="logo">
                                     <span style="font-size: 32px;">QueryCare</span>
                                 </a>
-                                <p class="text-muted mb-4 mt-3">Introduza seu ID e senha para acessar seu painel de paciente.</p>
+                                <p class="text-muted mb-4 mt-3">Introduza seu Nº. utente de saúde e sua senha para acessar seu painel de paciente.</p>
                             </div>
                             <form method="post">
                                 <div class="mb-3">

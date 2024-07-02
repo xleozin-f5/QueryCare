@@ -82,18 +82,18 @@
                         <a href="/QueryCare/public/login.html" class="logo">
                                     <img src="./assets/images/querycareblc.png" alt="QueryCare Logo" style="height: 60px;">
                                 </a>
-                                <p class="text-muted mb-4 mt-3">Introduza o seu código e senha para aceder ao seu painel médico.</p>
+                                <p class="text-muted mb-4 mt-3">Introduza a Cédula e a senha para aceder ao seu painel médico.</p>
                             </div>
                             <form method='post'>
 
                                 <div class="form-group mb-3">
                                     <label for="emailaddress">Cédula</label>
-                                    <input class="form-control" name="doc_number" type="text" id="emailaddress" required="" placeholder="Enter your doctor number">
+                                    <input class="form-control" name="doc_number" type="text" id="emailaddress" required="" placeholder="Insira sua Cédula">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="password">Password</label>
-                                    <input class="form-control" name="doc_pwd" type="password" required="" id="password" placeholder="Enter your password">
+                                    <input class="form-control" name="doc_pwd" type="password" required="" id="password" placeholder="Insira sua senha">
                                 </div>
 
                                 <div class="form-group mb-0 text-center">
