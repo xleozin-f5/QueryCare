@@ -79,8 +79,8 @@ if(isset($_POST['patient_register'])) {
                     <div class="card bg-pattern">
                         <div class="card-body p-4">
                             <div class="text-center w-75 m-auto">
-                                <a href="index.php">
-                                    <span style="font-size: 32px;">QueryCare</span>
+                            <a href="/QueryCare/public/login.html" class="logo">
+                                    <img src="./assets/images/querycareblc.png" alt="QueryCare Logo" style="height: 60px;">
                                 </a>
                                 <p class="text-muted mb-4 mt-3">Preencha o formulário para se registrar.</p>
                             </div>
