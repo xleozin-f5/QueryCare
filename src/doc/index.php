@@ -49,7 +49,7 @@
     <!--This code for injecting an alert-->
     <script>
     setTimeout(function() {
-            swal("Success", "<?php echo $success;?>", "success");
+            swal("Sucesso", "<?php echo $success;?>", "Sucesso");
         },
         100);
     </script>
@@ -60,7 +60,7 @@
     <!--This code for injecting an alert-->
     <script>
     setTimeout(function() {
-            swal("Failed", "<?php echo $err;?>", "error");
+            swal("Erro", "<?php echo $err;?>", "Erro");
         },
         100);
     </script>
