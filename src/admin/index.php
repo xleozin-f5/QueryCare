@@ -61,7 +61,7 @@ if(isset($err)) {
     <!--This code for injecting an alert-->
     <script>
     setTimeout(function() {
-            swal("Success", "<?php echo htmlspecialchars($success);?>", "success");
+            swal("Sucesso", "<?php echo htmlspecialchars($success);?>", "Sucesso");
         },
         100);
     </script>
